@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   </head>
   <body>
-    <heder>
+    <header>
       <div class="sepcial-deals">
         <span class="left-deal">
           <p>
@@ -49,7 +49,7 @@
           </nav>
         </div>
       </div>
-    </heder>
+    </header>
     <main>
       <section class="hero">
         <div class="hero-content">
@@ -141,24 +141,37 @@
         </div>
         <div class="testimonials">
           <section class="testimonials-left">
-            <h3><span>::</span> What our client's say</h3>
+            <div class="testimonial-header">
+              <h3><span>::</span> What our client's say</h3>
+
+              <div class="slider-buttons">
+                <button id="testimonial-prev">
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <button id="testimonial-next">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
 
             <div class="slider">
-              <p class="quote">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem nam explicabo illo fuga harum
-                perferendis aliquid, libero molestias debitis modi asperiores necessitatibus dolorem veritatis .
+              <p class="quote" id="quote">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem nam explicabo illo fuga harum
+                perferendis aliquid, libero molestias debitis modi asperiores necessitatibus dolorem veritatis.
               </p>
 
               <div class="dots">
-                <span class="dot"></span>
                 <span class="dot active"></span>
+                <span class="dot"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
               </div>
 
               <div class="author">
                 <i class="fa-solid fa-user" style="color: #414141"></i>
-                <p><strong>Jane Doe</strong>, ABC Company</p>
+
+                <p id="author"><strong>Jane Doe</strong>, ABC Company</p>
               </div>
             </div>
           </section>
@@ -166,9 +179,9 @@
             <h3>:: Tab Widget</h3>
 
             <ul class="tabs">
-              <button><li class="tab active">Design</li></button>
-              <button><li class="tab">Advertising</li></button>
-              <button><li class="tab">Marketing</li></button>
+              <li><button class="tab active">Design</button></li>
+              <li><button class="tab">Advertising</button></li>
+              <li><button class="tab">Marketing</button></li>
             </ul>
 
             <div class="panel">
@@ -196,5 +209,6 @@
         </div>
       </div>
     </main>
+    <script src="JS/script.js"></script>
   </body>
 </html>

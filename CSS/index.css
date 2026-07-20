@@ -302,3 +302,187 @@ hr {
     color: #707070;
     width: 90%;
 }
+
+/* =========================
+   TESTIMONIALS SECTION
+========================= */
+
+.testimonials {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin: 60px 0;
+}
+
+/* Both sections take equal width */
+.testimonials-left,
+.testimonials-right {
+    flex: 1;
+}
+
+/* Headings */
+.testimonials h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.testimonials h3 span {
+    color: #95c93d;
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.testimonial-header h3 {
+    margin: 0;
+}
+
+.slider-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.slider-buttons button {
+
+    border: none;
+    outline: none;
+    background-color: #fff;
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.slider {
+    position: relative;
+}
+
+/* Quote box */
+.quote {
+    background: #f5f5f5;
+    padding: 35px;
+    color: #777;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.7;
+    position: relative;
+}
+
+/* Small triangle */
+.quote::after {
+    content: "";
+    position: absolute;
+    right: 40px;
+    bottom: -18px;
+
+    border-width: 18px 18px 0;
+    border-style: solid;
+    border-color: #f5f5f5 transparent transparent;
+}
+
+/* Dots */
+
+.dots {
+    margin-top: 25px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #ccc;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.dot.active {
+    background: #95c93d;
+}
+
+/* Author */
+
+.author {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    margin-top: -15px;
+}
+
+.author i {
+    font-size: 35px;
+}
+
+.author p {
+    color: #888;
+}
+
+.author strong {
+    color: #95c93d;
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+/* Tabs */
+
+.tabs {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tabs li {
+    margin: 0;
+}
+
+.tab {
+    border: none;
+    padding: 15px 25px;
+    border-left: 1px solid #ddd;
+    background: #f4f4f4;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tab.active {
+    background: white;
+    border-top: 4px solid #95c93d;
+}
+
+/* Panel */
+
+.panel {
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 25px;
+}
+
+.panel p {
+    color: #777;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* Two columns */
+
+.columns {
+    display: flex;
+    gap: 60px;
+}
+
+.list {
+    padding-left: 18px;
+    color: #777;
+}
+
+.list li {
+    margin-bottom: 12px;
+}
