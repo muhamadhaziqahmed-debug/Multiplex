@@ -8,6 +8,7 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
     scroll-behavior: smooth;
+    background-color: white;
 }
 
 button:focus-visible {
