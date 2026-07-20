@@ -15,6 +15,7 @@
   </head>
   <body>
     <header>
+      <!-- Top announcement bar -->
       <div class="sepcial-deals">
         <span class="left-deal">
           <p>
@@ -24,9 +25,12 @@
           <button class="Buy-on-themeforest">BUY ON THEMEFOREST</button>
         </span>
         <span class="right-deal">
+          <!-- Note: this close button has no JS handler yet (same as before refactor) -->
           <button id="cross"><i class="fa-solid fa-x"></i></button>
         </span>
       </div>
+
+      <!-- Site header: social icons + logo + main nav -->
       <div class="container">
         <div class="social-links-head">
           <i class="fa-brands fa-facebook-f"></i>
@@ -50,7 +54,9 @@
         </div>
       </div>
     </header>
+
     <main>
+      <!-- Hero banner -->
       <section class="hero">
         <div class="hero-content">
           <h2>Welcome to Multiplex.</h2>
@@ -60,10 +66,12 @@
             create it. <span class="bold"> You can trust! </span>
           </p>
           <h4>Want it badly?</h4>
-          <button class="getnow">Get it now!</button>
+          <button class="btn-primary getnow">Get it now!</button>
         </div>
       </section>
+
       <div class="container">
+        <!-- Intro / theme description -->
         <section class="intro">
           <div class="main-content">
             <h3><span class="bold">Multiplex </span>is s clean-cut and responsive theme for products and services.</h3>
@@ -72,10 +80,13 @@
               features, unlimited colors, cool premium sliders and much more! Holy Cow!
             </p>
           </div>
-          <button id="getnow">Purchase Now</button>
+          <button id="purchase-btn" class="btn-primary">Purchase Now</button>
         </section>
+
         <br />
         <hr />
+
+        <!-- Services / feature highlights -->
         <section class="services">
           <div class="flex">
             <div class="flex-itm">
@@ -102,11 +113,14 @@
             </div>
           </div>
         </section>
-        <div class="blogs">
+
+        <!-- Blog preview grid -->
+        <section class="blogs">
           <span>
             <h3><span>::</span> From the blog</h3>
             <div class="navigation">
               <div class="left">
+                <!-- Decorative nav buttons: not wired to JS (unchanged from original) -->
                 <button id="prev"><</button>
                 <button id="next">></button>
               </div>
@@ -114,32 +128,34 @@
           </span>
           <div class="blog-grid">
             <div class="blog-grid-item">
-              <img src="Images/Grid-1.png" />
+              <img src="Images/Grid-1.png" alt="Standard blog post thumbnail" />
               <h3>Strandard post with Image</h3>
-              <p id="gray">12. september 2012 / 2 comments</p>
+              <p class="post-date">12. september 2012 / 2 comments</p>
               <p>Lorem ipsum dolor sit amet cit. deleniti aut, officia perspiciatis? Dolorem, repellat .</p>
             </div>
             <div class="blog-grid-item">
-              <img src="Images/Grid-2.png" />
+              <img src="Images/Grid-2.png" alt="Gallery blog post thumbnail" />
               <h3>Gallery Blog Post</h3>
-              <p id="gray">11. september 2012 / 2 comments</p>
+              <p class="post-date">11. september 2012 / 2 comments</p>
               <p>Lorem ipsum dolor spisicing elit. deleniti aut, officia perspiciatis? Dolorem, repellat .</p>
             </div>
             <div class="blog-grid-item">
-              <img src="Images/Grid-3.png" />
+              <img src="Images/Grid-3.png" alt="Youtube video blog post thumbnail" />
               <h3>Videos from Youtube</h3>
-              <p id="gray">10. september 2012 / 2 comments</p>
+              <p class="post-date">10. september 2012 / 2 comments</p>
               <p>Lorem ipsum dolor sit amet consectet elit. deleniti aut, officia perspiciatis? Dolorem, repellat .</p>
             </div>
             <div class="blog-grid-item">
-              <img src="Images/Grid-4.png" />
+              <img src="Images/Grid-4.png" alt="Vimeo video blog post thumbnail" />
               <h3>And also videos from vimeo</h3>
-              <p id="gray">9. september 2012 / 2 comments</p>
+              <p class="post-date">9. september 2012 / 2 comments</p>
               <p>Lorem ipsum dolor sit cing elit. deleniti aut, officia perspiciatis? Dolorem, repellat .</p>
             </div>
           </div>
-        </div>
-        <div class="testimonials">
+        </section>
+
+        <!-- Testimonials slider + tab widget -->
+        <section class="testimonials">
           <section class="testimonials-left">
             <div class="testimonial-header">
               <h3><span>::</span> What our client's say</h3>
@@ -175,6 +191,7 @@
               </div>
             </div>
           </section>
+
           <section class="testimonials-right">
             <h3>:: Tab Widget</h3>
 
@@ -206,7 +223,7 @@
               </div>
             </div>
           </section>
-        </div>
+        </section>
       </div>
     </main>
     <script src="JS/script.js"></script>

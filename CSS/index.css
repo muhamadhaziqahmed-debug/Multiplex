@@ -1,3 +1,7 @@
+/* =========================
+   RESET
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +17,25 @@ button:focus-visible {
 .container {
     margin: 0px 10% 0px 10%;
 }
+
+/* =========================
+   SHARED BUTTON STYLE
+   (was previously duplicated between .getnow and .intro button)
+========================= */
+
+.btn-primary {
+    color: #fff;
+    height: 6vh;
+    font-size: 20px;
+    background-color: #95c53d;
+    border: 1px solid #89b73d;
+    border-radius: 3px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+   ANNOUNCEMENT BAR
+========================= */
 
 .sepcial-deals {
     font-family: "Zilla Slab", serif;
@@ -61,6 +84,10 @@ button:focus-visible {
     color: #666;
 }
 
+/* =========================
+   HEADER / NAVBAR
+========================= */
+
 .social-links-head {
     color: #d2d2d2;
     text-align: end;
@@ -102,6 +129,10 @@ nav a:hover {
 .active {
     color: #9bc43b;
 }
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
     aspect-ratio: 16/9;
@@ -146,21 +177,19 @@ nav a:hover {
     margin-bottom: 2%;
 }
 
+/* Hero CTA button (shares .btn-primary base) */
 .getnow {
     margin-left: 3vw;
-    color: #fff;
-    height: 6vh;
     width: 8vw;
-    font-size: 20px;
-    background-color: #95c53d;
-    border: 1px solid #89b73d;
-    border-radius: 3px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 .getnow:hover {
     background-color: #89b73d;
 }
+
+/* =========================
+   INTRO
+========================= */
 
 .intro {
     margin-top: 40px;
@@ -187,18 +216,15 @@ nav a:hover {
     font-weight: 500;
 }
 
-.intro button {
+/* Intro CTA button (shares .btn-primary base) */
+#purchase-btn {
     align-self: flex-end;
-    margin-left: 0vw;
-    color: #fff;
-    height: 6vh;
     width: 18vw;
-    font-size: 20px;
-    background-color: #95c53d;
-    border: 1px solid #89b73d;
-    border-radius: 3px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
 }
+
+/* =========================
+   SERVICES
+========================= */
 
 .flex {
     margin: 70px 0px 70px 0px;
@@ -241,6 +267,10 @@ hr {
 .flex-itm a:hover {
     color: #78a62c;
 }
+
+/* =========================
+   BLOG GRID
+========================= */
 
 .blogs span {
     display: flex;
@@ -292,7 +322,7 @@ hr {
     aspect-ratio: 1/1.5;
 }
 
-#gray {
+.post-date {
     display: inline-block;
     margin-bottom: 10px;
     color: #838a92;
@@ -348,21 +378,19 @@ hr {
 }
 
 .slider-buttons button {
-
     border: none;
     outline: none;
     background-color: #fff;
 }
 
-/* =========================
-   LEFT SIDE
-========================= */
+/* -------------------------
+   Left side: quote slider
+-------------------------- */
 
 .slider {
     position: relative;
 }
 
-/* Quote box */
 .quote {
     background: #f5f5f5;
     padding: 35px;
@@ -373,7 +401,7 @@ hr {
     position: relative;
 }
 
-/* Small triangle */
+/* Small triangle pointing to the author */
 .quote::after {
     content: "";
     position: absolute;
@@ -384,8 +412,6 @@ hr {
     border-style: solid;
     border-color: #f5f5f5 transparent transparent;
 }
-
-/* Dots */
 
 .dots {
     margin-top: 25px;
@@ -403,8 +429,6 @@ hr {
 .dot.active {
     background: #95c93d;
 }
-
-/* Author */
 
 .author {
     display: flex;
@@ -426,11 +450,9 @@ hr {
     color: #95c93d;
 }
 
-/* =========================
-   RIGHT SIDE
-========================= */
-
-/* Tabs */
+/* -------------------------
+   Right side: tab widget
+-------------------------- */
 
 .tabs {
     display: flex;
@@ -457,8 +479,6 @@ hr {
     border-top: 4px solid #95c93d;
 }
 
-/* Panel */
-
 .panel {
     border: 1px solid #ddd;
     border-top: none;
@@ -470,8 +490,6 @@ hr {
     line-height: 1.7;
     margin-bottom: 25px;
 }
-
-/* Two columns */
 
 .columns {
     display: flex;

@@ -1,6 +1,11 @@
+/* =========================================================
+   TAB WIDGET (Design / Advertising / Marketing)
+========================================================= */
+
 const panel = document.querySelector('.panel');
 const tabs = document.querySelectorAll('.tab');
 
+// Content shown in the panel for each tab, keyed by the tab's label text
 const tabContent = {
   Design: `
     <p>
@@ -76,16 +81,19 @@ const tabContent = {
 
 tabs.forEach((tab) => {
   tab.addEventListener('click', () => {
-    // Remove active class from all tabs
+    // Only one tab is active at a time
     tabs.forEach((t) => t.classList.remove('active'));
-
-    // Add active class to clicked tab
     tab.classList.add('active');
 
-    // Change panel content
+    // Swap the panel content to match the clicked tab
     panel.innerHTML = tabContent[tab.textContent.trim()];
   });
 });
+
+/* =========================================================
+   TESTIMONIALS SLIDER
+========================================================= */
+
 const testimonials = [
   {
     quote:
@@ -118,6 +126,7 @@ const quote = document.getElementById('quote');
 const author = document.getElementById('author');
 const dots = document.querySelectorAll('.dot');
 
+// Renders whichever testimonial "current" points to
 function updateTestimonial() {
   quote.textContent = testimonials[current].quote;
 
@@ -129,29 +138,25 @@ function updateTestimonial() {
   dots[current].classList.add('active');
 }
 
-// Next Button
+// Manual navigation: next button
 document.getElementById('testimonial-next').addEventListener('click', () => {
   current++;
-
   if (current >= testimonials.length) {
     current = 0;
   }
-
   updateTestimonial();
 });
 
-// Previous Button
+// Manual navigation: previous button
 document.getElementById('testimonial-prev').addEventListener('click', () => {
   current--;
-
   if (current < 0) {
     current = testimonials.length - 1;
   }
-
   updateTestimonial();
 });
 
-// Click on dots
+// Manual navigation: clicking a dot jumps straight to that testimonial
 dots.forEach((dot, index) => {
   dot.addEventListener('click', () => {
     current = index;
@@ -159,14 +164,14 @@ dots.forEach((dot, index) => {
   });
 });
 
-// Show first testimonial
+// Initial render
 updateTestimonial();
+
+// Auto-advance every 5 seconds
 setInterval(() => {
   current++;
-
   if (current >= testimonials.length) {
     current = 0;
   }
-
   updateTestimonial();
 }, 5000);
