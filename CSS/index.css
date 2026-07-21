@@ -1,6 +1,9 @@
-/* =========================
+/* =========================================================
    RESET
-========================= */
+   Removes default browser spacing and sets one base font
+   for the whole page, so every browser starts from the
+   same blank slate.
+========================================================= */
 
 * {
     margin: 0;
@@ -10,18 +13,64 @@
     scroll-behavior: smooth;
 }
 
+/* =========================================================
+   DESIGN TOKENS (CSS VARIABLES)
+   Every value below is reused in at least two places in this
+   file. Keeping them here means changing a color or spacing
+   value once updates it everywhere it's used.
+
+   NOTE: --primary-color and --accent-green are two very
+   similar (but different) greens that were already both used
+   in the original design — one for buttons/top bar, one for
+   the testimonials/tabs area. They're kept separate so the
+   page still looks exactly the same.
+========================================================= */
+
 :root {
 
-    --space-xs: .5rem;
-    --space-s: 1rem;
-    --space-m: 2rem;
-    --space-l: 4rem;
-    --space-xl: 6rem;
+    /* Colors */
+    --white: #fff;
+    --primary-color: #95c53d;
+    /* buttons, top bar, active nav-ish accents */
+    --primary-hover: #89b73d;
+    /* border/hover shade of the primary green */
+    --primary-dark: #78a62c;
+    /* darkest green, used for hover states */
+    --accent-green: #95c93d;
+    /* the slightly different green used only in testimonials/tabs */
+    --text-dark: #404042;
+    /* main headings */
+    --text-gray: #707070;
+    /* nav links, blog text */
+    --text-muted: #727981;
+    /* paragraph text (intro, services) */
+    --text-body: #777;
+    /* paragraph text (testimonials, tabs) */
+    --text-heading-alt: #46474b;
+    /* a couple of secondary headings */
+    --text-heading-secondary: #444;
+    /* testimonials + lower-intro headings */
+    --border-light: #eee;
+    --border-medium: #ddd;
+    --bg-quote: #f5f5f5;
 
+    /* Spacing (only values that repeat 2+ times get a variable) */
+    --space-2xs: 8px;
+    --space-xs: 10px;
+    --space-sm: 15px;
+    --space-md: 20px;
+    --space-lg: 25px;
+    --space-xl: 40px;
+    --space-2xl: 60px;
+    --space-3xl: 70px;
+
+    /* Effects */
+    --radius-sm: 3px;
+    --shadow-btn: 0px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 body {
-    background-color: white;
+    background-color: var(--white);
 }
 
 button:focus-visible {
@@ -29,46 +78,55 @@ button:focus-visible {
 }
 
 .container {
-
     width: min(1200px, 90%);
     margin-inline: auto;
-
 }
 
-/* =========================
+/* =========================================================
    SHARED BUTTON STYLE
-   (was previously duplicated between .getnow and .intro button)
-========================= */
+   Any button styled like the main green "call to action"
+   button (Get it now!, Purchase Now, Get a Free Qoute) uses
+   this one class instead of repeating the same 6 properties
+   three times. Each button can still add its own extra
+   sizing/spacing on top of this (see .getnow, #purchase-btn,
+   and the Get a Free Qoute button further down).
+========================================================= */
 
 .btn-primary {
-    color: #fff;
+    color: var(--white);
     height: 6vh;
     font-size: 20px;
-    background-color: #95c53d;
-    border: 1px solid #89b73d;
-    border-radius: 3px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-hover);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-btn);
 }
 
-/* =========================
-   ANNOUNCEMENT BAR
-========================= */
+/* Every button on the page darkens to the same green on hover,
+   unless a more specific rule below overrides it. */
+button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* =========================================================
+   ANNOUNCEMENT BAR (top green strip)
+========================================================= */
 
 .sepcial-deals {
     font-family: "Zilla Slab", serif;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: #95c53d;
+    background-color: var(--primary-color);
     height: 30px;
-    color: #fff;
+    color: var(--white);
 }
 
 .left-deal {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: var(--space-md);
     font-style: italic;
     font-weight: 300;
     font-size: 18px;
@@ -76,14 +134,14 @@ button:focus-visible {
 
 .left-deal button {
     padding: 3px;
-    border-radius: 3px;
-    border: 1px solid #78a62c;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--primary-dark);
     background-color: #80ae34;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .left-deal button:hover {
-    background-color: #95c53d;
+    background-color: var(--primary-color);
 }
 
 .bold {
@@ -92,8 +150,8 @@ button:focus-visible {
 
 .right-deal button {
     border: none;
-    background-color: #95c53d;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--white);
     font-size: 18px;
 }
 
@@ -101,9 +159,9 @@ button:focus-visible {
     color: #666;
 }
 
-/* =========================
+/* =========================================================
    HEADER / NAVBAR
-========================= */
+========================================================= */
 
 .social-links-head {
     color: #d2d2d2;
@@ -129,12 +187,12 @@ button:focus-visible {
 
 .navbar nav {
     display: flex;
-    gap: 20px;
+    gap: var(--space-md);
 }
 
 nav a {
     text-decoration: none;
-    color: #707070;
+    color: var(--text-gray);
     font-size: 19px;
     font-weight: 600;
 }
@@ -147,9 +205,9 @@ nav a:hover {
     color: #9bc43b;
 }
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
     aspect-ratio: 16/9;
@@ -166,7 +224,7 @@ nav a:hover {
 
 .hero-content h2 {
     font-size: 48px;
-    color: #404042;
+    color: var(--text-dark);
     margin-bottom: 2%;
 }
 
@@ -183,33 +241,33 @@ nav a:hover {
 }
 
 .hero-content p .bold {
-    color: #404042;
+    color: var(--text-dark);
     font-weight: bold;
 }
 
 .hero-content h4 {
     font-size: 18px;
-    color: #46474b;
+    color: var(--text-heading-alt);
     display: inline-block;
     margin-bottom: 2%;
 }
 
-/* Hero CTA button (shares .btn-primary base) */
+/* "Get it now!" button — extends .btn-primary, only adds its own spacing/width */
 .getnow {
     margin-left: 3vw;
     width: 8vw;
 }
 
 .getnow:hover {
-    background-color: #89b73d;
+    background-color: var(--primary-hover);
 }
 
-/* =========================
+/* =========================================================
    INTRO
-========================= */
+========================================================= */
 
 .intro {
-    margin-top: 40px;
+    margin-top: var(--space-xl);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -220,35 +278,35 @@ nav a:hover {
 }
 
 .intro h3 {
-    margin-bottom: 20px;
+    margin-bottom: var(--space-md);
     font-size: 28px;
     font-weight: 500;
-    color: #404042;
+    color: var(--text-dark);
 }
 
 .intro p {
     max-width: 86%;
     font-size: 18px;
-    color: #727981;
+    color: var(--text-muted);
     font-weight: 500;
 }
 
-/* Intro CTA button (shares .btn-primary base) */
+/* "Purchase Now" button — extends .btn-primary, only adds its own spacing/width */
 #purchase-btn {
     align-self: flex-end;
     width: 18vw;
 }
 
-/* =========================
+/* =========================================================
    SERVICES
-========================= */
+========================================================= */
 
 .flex {
-    margin: 70px 0px 70px 0px;
+    margin: var(--space-3xl) 0px var(--space-3xl) 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: var(--space-md);
 }
 
 .flex-itm {
@@ -262,32 +320,32 @@ nav a:hover {
 }
 
 .flex-itm p {
-    color: #727981;
+    color: var(--text-muted);
     font-size: 16px;
     font-weight: 400;
-    margin-bottom: 10px;
+    margin-bottom: var(--space-xs);
     line-height: 1.4;
 }
 
 hr {
-    color: #eee;
-    border: 1px solid #eee;
+    color: var(--border-light);
+    border: 1px solid var(--border-light);
 }
 
 .flex-itm a {
     display: inline-block;
     color: #91bf45;
     text-decoration: none;
-    margin-top: 10px;
+    margin-top: var(--space-xs);
 }
 
 .flex-itm a:hover {
-    color: #78a62c;
+    color: var(--primary-dark);
 }
 
-/* =========================
+/* =========================================================
    BLOG GRID
-========================= */
+========================================================= */
 
 .blogs span {
     display: flex;
@@ -298,13 +356,13 @@ hr {
 .left {
     margin-right: 2.2vw;
     display: flex;
-    gap: 15px;
+    gap: var(--space-sm);
 }
 
 .left button {
     border: none;
     font-size: 20px;
-    color: #727981;
+    color: var(--text-muted);
 }
 
 .left button:hover {
@@ -312,21 +370,20 @@ hr {
 }
 
 .blogs h3 {
-    color: #46474b;
+    color: var(--text-heading-alt);
     font-size: 18px;
-    margin-bottom: 8px;
+    margin-bottom: var(--space-2xs);
 }
 
 .blogs h3 span {
-    color: #78a62c;
-    font-family: 'Segoe UI', sans-serif;
+    color: var(--primary-dark);
 }
 
 .blog-grid {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 70px;
+    margin-bottom: var(--space-3xl);
 }
 
 .blog-grid-item {
@@ -341,24 +398,24 @@ hr {
 
 .post-date {
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: var(--space-xs);
     color: #838a92;
 }
 
 .blog-grid-item p {
-    color: #707070;
+    color: var(--text-gray);
     width: 90%;
 }
 
-/* =========================
+/* =========================================================
    TESTIMONIALS SECTION
-========================= */
+========================================================= */
 
 .testimonials {
     display: flex;
     justify-content: space-between;
-    gap: 40px;
-    margin: 60px 0;
+    gap: var(--space-xl);
+    margin: var(--space-2xl) 0;
 }
 
 /* Both sections take equal width */
@@ -370,19 +427,19 @@ hr {
 /* Headings */
 .testimonials h3 {
     font-size: 24px;
-    margin-bottom: 20px;
-    color: #444;
+    margin-bottom: var(--space-md);
+    color: var(--text-heading-secondary);
 }
 
 .testimonials h3 span {
-    color: #95c93d;
+    color: var(--accent-green);
 }
 
 .testimonial-header {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
 }
 
 .testimonial-header h3 {
@@ -397,7 +454,7 @@ hr {
 .slider-buttons button {
     border: none;
     outline: none;
-    background-color: #fff;
+    background-color: var(--white);
 }
 
 /* -------------------------
@@ -409,9 +466,9 @@ hr {
 }
 
 .quote {
-    background: #f5f5f5;
-    padding: 35px;
-    color: #777;
+    background: var(--bg-quote);
+    padding: var(--space-lg);
+    color: var(--text-body);
     font-size: 18px;
     font-style: italic;
     line-height: 1.7;
@@ -427,11 +484,11 @@ hr {
 
     border-width: 18px 18px 0;
     border-style: solid;
-    border-color: #f5f5f5 transparent transparent;
+    border-color: var(--bg-quote) transparent transparent;
 }
 
 .dots {
-    margin-top: 25px;
+    margin-top: var(--space-lg);
 }
 
 .dot {
@@ -440,18 +497,18 @@ hr {
     background: #ccc;
     display: inline-block;
     border-radius: 50%;
-    margin-right: 8px;
+    margin-right: var(--space-2xs);
 }
 
 .dot.active {
-    background: #95c93d;
+    background: var(--accent-green);
 }
 
 .author {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 15px;
+    gap: var(--space-sm);
     margin-top: -15px;
 }
 
@@ -464,7 +521,7 @@ hr {
 }
 
 .author strong {
-    color: #95c93d;
+    color: var(--accent-green);
 }
 
 /* -------------------------
@@ -484,43 +541,47 @@ hr {
 
 .tab {
     border: none;
-    padding: 15px 25px;
-    border-left: 1px solid #ddd;
+    padding: var(--space-sm) var(--space-lg);
+    border-left: 1px solid var(--border-medium);
     background: #f4f4f4;
     font-weight: bold;
     cursor: pointer;
 }
 
 .tab.active {
-    background: white;
-    border-top: 4px solid #95c93d;
+    background: var(--white);
+    border-top: 4px solid var(--accent-green);
 }
 
 .panel {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-medium);
     border-top: none;
-    padding: 25px;
+    padding: var(--space-lg);
 }
 
 .panel p {
-    color: #777;
+    color: var(--text-body);
     line-height: 1.7;
-    margin-bottom: 25px;
+    margin-bottom: var(--space-lg);
 }
 
 .columns {
     display: flex;
-    gap: 60px;
+    gap: var(--space-2xl);
 }
 
 .list {
     padding-left: 18px;
-    color: #777;
+    color: var(--text-body);
 }
 
 .list li {
     margin-bottom: 12px;
 }
+
+/* =========================================================
+   LOWER INTRO STRIP
+========================================================= */
 
 .lower-intro {
     display: flex;
@@ -528,31 +589,23 @@ hr {
     justify-content: space-between;
     width: 100%;
     margin-bottom: 50px;
-    padding: 20px;
+    padding: var(--space-md);
     border: 1px solid #eff;
     line-height: 1.9;
 }
 
 .l-i_left h3 {
     font-size: 22px;
-    margin-bottom: 20px;
-    color: #444;
+    margin-bottom: var(--space-md);
+    color: var(--text-heading-secondary);
     font-weight: 500;
 }
 
+/* "Get a Free Qoute" button now uses .btn-primary in the HTML
+   (see CHANGELOG), so this rule only adds the one extra
+   property that button needs on top of the shared style. */
 .l-i_right button {
-    color: #fff;
-    height: 6vh;
-    font-size: 20px;
-    background-color: #95c53d;
-    border: 1px solid #89b73d;
-    border-radius: 3px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
     padding: 5px;
-}
-
-button:hover {
-    background-color: #78a62c;
 }
 
 .l-i_left h3 span {
@@ -561,13 +614,16 @@ button:hover {
     font-weight: 700;
 }
 
+/* =========================================================
+   OUR CLIENTS
+========================================================= */
 
 .our-clients h3 {
     color: #303031;
 }
 
 .our-clients h3 span {
-    color: #78a62c;
+    color: var(--primary-dark);
 }
 
 .our-clients-cont {
@@ -576,19 +632,17 @@ button:hover {
     align-items: center;
     justify-content: space-evenly;
     margin: auto;
-    margin-bottom: 70px;
+    margin-bottom: var(--space-3xl);
 }
 
+/* Both rules below targeted the same .client img selector in the
+   original file and have been merged into one (see CHANGELOG). */
 .client img {
-    size: cover;
     aspect-ratio: 1/1;
     height: 150px;
     width: 150px;
     border-radius: 25%;
     border: 1px solid rgba(255, 255, 255, .05);
-}
-
-.client img {
     transition: all .3s ease;
 }
 

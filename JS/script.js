@@ -1,11 +1,15 @@
 /* =========================================================
    TAB WIDGET (Design / Advertising / Marketing)
+   Clicking a tab swaps which one has the "active" look and
+   replaces the panel content below it.
 ========================================================= */
 
 const panel = document.querySelector('.panel');
-const tabs = document.querySelectorAll('.tab');
+const tabButtons = document.querySelectorAll('.tab');
 
-// Content shown in the panel for each tab, keyed by the tab's label text
+// Content shown in the panel for each tab, keyed by the tab's label text.
+// Using the label text as the key means we don't need a separate id
+// on every button — the button's own text tells us which content to show.
 const tabContent = {
   Design: `
     <p>
@@ -79,19 +83,26 @@ const tabContent = {
   `,
 };
 
-tabs.forEach((tab) => {
-  tab.addEventListener('click', () => {
-    // Only one tab is active at a time
-    tabs.forEach((t) => t.classList.remove('active'));
-    tab.classList.add('active');
+// Give every tab button a click handler that (1) moves the "active"
+// class onto the clicked tab and (2) swaps the panel's HTML to match it.
+tabButtons.forEach((tabButton) => {
+  tabButton.addEventListener('click', () => {
+    // Only one tab is active at a time, so clear it from all of them first...
+    tabButtons.forEach((button) => button.classList.remove('active'));
+    // ...then mark just the one that was clicked.
+    tabButton.classList.add('active');
 
-    // Swap the panel content to match the clicked tab
-    panel.innerHTML = tabContent[tab.textContent.trim()];
+    // .trim() removes any stray whitespace around the button text so it
+    // matches the keys in tabContent exactly (e.g. "Design", not " Design").
+    const tabName = tabButton.textContent.trim();
+    panel.innerHTML = tabContent[tabName];
   });
 });
 
 /* =========================================================
    TESTIMONIALS SLIDER
+   Cycles through a list of quotes using the prev/next buttons,
+   the dots, or automatically every 5 seconds.
 ========================================================= */
 
 const testimonials = [
@@ -120,58 +131,50 @@ const testimonials = [
   },
 ];
 
-let current = 0;
+// Index of whichever testimonial is currently showing.
+let currentIndex = 0;
 
-const quote = document.getElementById('quote');
-const author = document.getElementById('author');
-const dots = document.querySelectorAll('.dot');
+const quoteEl = document.getElementById('quote');
+const authorEl = document.getElementById('author');
+const dotEls = document.querySelectorAll('.dot');
 
-// Renders whichever testimonial "current" points to
-function updateTestimonial() {
-  quote.textContent = testimonials[current].quote;
+// Renders whichever testimonial "currentIndex" points to, and keeps the
+// dots in sync with it.
+function showTestimonial(index) {
+  const testimonial = testimonials[index];
 
-  author.innerHTML = `
-    <strong>${testimonials[current].author}</strong>, ${testimonials[current].company}
-  `;
+  quoteEl.textContent = testimonial.quote;
+  authorEl.innerHTML = `<strong>${testimonial.author}</strong>, ${testimonial.company}`;
 
-  dots.forEach((dot) => dot.classList.remove('active'));
-  dots[current].classList.add('active');
+  dotEls.forEach((dot) => dot.classList.remove('active'));
+  dotEls[index].classList.add('active');
 }
 
-// Manual navigation: next button
-document.getElementById('testimonial-next').addEventListener('click', () => {
-  current++;
-  if (current >= testimonials.length) {
-    current = 0;
-  }
-  updateTestimonial();
-});
+// Moves forward one testimonial, wrapping back to the start after the last one.
+function goToNextTestimonial() {
+  currentIndex = (currentIndex + 1) % testimonials.length;
+  showTestimonial(currentIndex);
+}
 
-// Manual navigation: previous button
-document.getElementById('testimonial-prev').addEventListener('click', () => {
-  current--;
-  if (current < 0) {
-    current = testimonials.length - 1;
-  }
-  updateTestimonial();
-});
+// Moves back one testimonial, wrapping to the end if we're on the first one.
+function goToPreviousTestimonial() {
+  currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+  showTestimonial(currentIndex);
+}
 
-// Manual navigation: clicking a dot jumps straight to that testimonial
-dots.forEach((dot, index) => {
+document.getElementById('testimonial-next').addEventListener('click', goToNextTestimonial);
+document.getElementById('testimonial-prev').addEventListener('click', goToPreviousTestimonial);
+
+// Clicking a dot jumps straight to that testimonial.
+dotEls.forEach((dot, index) => {
   dot.addEventListener('click', () => {
-    current = index;
-    updateTestimonial();
+    currentIndex = index;
+    showTestimonial(currentIndex);
   });
 });
 
-// Initial render
-updateTestimonial();
+// Show the first testimonial as soon as the page loads.
+showTestimonial(currentIndex);
 
-// Auto-advance every 5 seconds
-setInterval(() => {
-  current++;
-  if (current >= testimonials.length) {
-    current = 0;
-  }
-  updateTestimonial();
-}, 5000);
+// Auto-advance to the next testimonial every 5 seconds.
+setInterval(goToNextTestimonial, 5000);
