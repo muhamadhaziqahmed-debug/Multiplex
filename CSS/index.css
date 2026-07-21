@@ -1,9 +1,6 @@
-/* =========================================================
-   RESET
-   Removes default browser spacing and sets one base font
-   for the whole page, so every browser starts from the
-   same blank slate.
-========================================================= */
+button {
+    cursor: pointer;
+}
 
 * {
     margin: 0;
@@ -12,19 +9,6 @@
     font-family: 'Segoe UI', sans-serif;
     scroll-behavior: smooth;
 }
-
-/* =========================================================
-   DESIGN TOKENS (CSS VARIABLES)
-   Every value below is reused in at least two places in this
-   file. Keeping them here means changing a color or spacing
-   value once updates it everywhere it's used.
-
-   NOTE: --primary-color and --accent-green are two very
-   similar (but different) greens that were already both used
-   in the original design — one for buttons/top bar, one for
-   the testimonials/tabs area. They're kept separate so the
-   page still looks exactly the same.
-========================================================= */
 
 :root {
 
@@ -82,16 +66,6 @@ button:focus-visible {
     margin-inline: auto;
 }
 
-/* =========================================================
-   SHARED BUTTON STYLE
-   Any button styled like the main green "call to action"
-   button (Get it now!, Purchase Now, Get a Free Qoute) uses
-   this one class instead of repeating the same 6 properties
-   three times. Each button can still add its own extra
-   sizing/spacing on top of this (see .getnow, #purchase-btn,
-   and the Get a Free Qoute button further down).
-========================================================= */
-
 .btn-primary {
     color: var(--white);
     height: 6vh;
@@ -102,8 +76,6 @@ button:focus-visible {
     box-shadow: var(--shadow-btn);
 }
 
-/* Every button on the page darkens to the same green on hover,
-   unless a more specific rule below overrides it. */
 button:hover {
     background-color: var(--primary-dark);
 }
@@ -252,7 +224,6 @@ nav a:hover {
     margin-bottom: 2%;
 }
 
-/* "Get it now!" button — extends .btn-primary, only adds its own spacing/width */
 .getnow {
     margin-left: 3vw;
     width: 8vw;
@@ -291,7 +262,7 @@ nav a:hover {
     font-weight: 500;
 }
 
-/* "Purchase Now" button — extends .btn-primary, only adds its own spacing/width */
+
 #purchase-btn {
     align-self: flex-end;
     width: 18vw;
@@ -418,7 +389,6 @@ hr {
     margin: var(--space-2xl) 0;
 }
 
-/* Both sections take equal width */
 .testimonials-left,
 .testimonials-right {
     flex: 1;
@@ -601,9 +571,6 @@ hr {
     font-weight: 500;
 }
 
-/* "Get a Free Qoute" button now uses .btn-primary in the HTML
-   (see CHANGELOG), so this rule only adds the one extra
-   property that button needs on top of the shared style. */
 .l-i_right button {
     padding: 5px;
 }
@@ -635,8 +602,6 @@ hr {
     margin-bottom: var(--space-3xl);
 }
 
-/* Both rules below targeted the same .client img selector in the
-   original file and have been merged into one (see CHANGELOG). */
 .client img {
     aspect-ratio: 1/1;
     height: 150px;
@@ -671,7 +636,6 @@ hr {
     font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-/* ---- Main footer wrapper: full-width bg, centered content ---- */
 .main-footer {
     display: flex;
     flex-wrap: wrap;
@@ -687,7 +651,6 @@ hr {
 .main-footer>div {
     flex: 1 1 220px;
     min-width: 0;
-    /* stops flex items forcing overflow on long tweet text */
 }
 
 .make-footer-center {
@@ -808,7 +771,6 @@ hr {
     font-size: 12px;
 }
 
-/* shared green accent - dates, usernames, links */
 .green {
     color: var(--footer-green);
 }
@@ -901,9 +863,6 @@ hr {
     color: #ffffff;
 }
 
-/* ==========================================================================
-   Responsive
-   ========================================================================== */
 
 @media (max-width: 900px) {
     .main-footer>div {
