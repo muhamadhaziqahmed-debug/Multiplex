@@ -3,6 +3,12 @@
    Clicking a tab swaps which one has the "active" look and
    replaces the panel content below it.
 ========================================================= */
+const cross = document.getElementById('cross');
+const displayChamge = document.getElementById('displayChamge');
+
+cross.addEventListener('click', function () {
+  displayChamge.style.display = 'none';
+});
 
 const panel = document.querySelector('.panel');
 const tabButtons = document.querySelectorAll('.tab');
