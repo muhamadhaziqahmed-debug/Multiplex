@@ -654,3 +654,282 @@ hr {
 
     border-color: rgba(212, 175, 55, .25);
 }
+
+/* ==========================================================================
+   Multiplex Footer
+   ========================================================================== */
+
+.site-footer {
+    --footer-bg: #3b3b3b;
+    --footer-border: #4a4a4a;
+    --footer-text: #b0b0b0;
+    --footer-heading: #ffffff;
+    --footer-green: #8dc63f;
+    --copyright-bg: #9acd32;
+    --copyright-text: #3b3b3b;
+
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---- Main footer wrapper: full-width bg, centered content ---- */
+.main-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 50px 5vw;
+    background: var(--footer-bg);
+    border-top: 10px solid #222;
+}
+
+.main-footer>div {
+    flex: 1 1 220px;
+    min-width: 0;
+    /* stops flex items forcing overflow on long tweet text */
+}
+
+.make-footer-center {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+
+/* ---- Column 1: About / logo ---- */
+.left-footer {
+    flex-basis: 260px;
+}
+
+.left-footer img {
+    width: 250px;
+    height: auto;
+    margin-bottom: 18px;
+}
+
+.left-footer h5 {
+    margin: 0 0 14px;
+    color: var(--footer-heading);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.left-footer p {
+    margin: 0;
+    color: var(--footer-text);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.left-footer p b {
+    color: var(--footer-heading);
+}
+
+/* ---- Shared column headings ---- */
+.left-mid h4,
+.right-mid h4,
+.right-footer h3 {
+    margin: 0 0 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--footer-border);
+    color: var(--footer-heading);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* ---- Column 2: Recent posts ---- */
+.post-footer {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--footer-border);
+}
+
+.post-footer:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.post-footer img {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: #e8e8e8;
+    object-fit: cover;
+}
+
+.post-footer-text p {
+    margin: 0;
+    color: var(--footer-heading);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.post-footer-text .green {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+/* ---- Column 3: Twitter widget ---- */
+.twitter-post {
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--footer-border);
+    color: var(--footer-text);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.twitter-post:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.twitter-post p {
+    margin: 0 0 6px;
+}
+
+.twitter-post a {
+    text-decoration: none;
+}
+
+.twitter-post a:hover {
+    text-decoration: underline;
+}
+
+.tweet-date {
+    color: #8a8a8a;
+    font-size: 12px;
+}
+
+/* shared green accent - dates, usernames, links */
+.green {
+    color: var(--footer-green);
+}
+
+/* ---- Column 4: Flickr grid ---- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+}
+
+.grid-item {
+    aspect-ratio: 1 / 1;
+}
+
+#grid-item1 {
+    background-image: url(../Images/grid-images\ \(1\).jpg);
+    background-size: cover;
+}
+
+#grid-item2 {
+    background-image: url(../Images/grid-images\ \(2\).jpg);
+    background-size: cover;
+}
+
+#grid-item3 {
+    background-image: url(../Images/grid-images\ \(3\).jpg);
+    background-size: cover;
+}
+
+#grid-item4 {
+    background-image: url(../Images/grid-images\ \(4\).jpg);
+    background-size: cover;
+}
+
+#grid-item5 {
+    background-image: url(../Images/grid-images\ \(5\).jpg);
+    background-size: cover;
+}
+
+#grid-item6 {
+    background-image: url(../Images/grid-images\ \(6\).jpg);
+    background-size: cover;
+}
+
+#grid-item7 {
+    background-image: url(../Images/grid-images\ \(7\).jpg);
+    background-size: cover;
+}
+
+#grid-item8 {
+    background-image: url(../Images/grid-images\ \(8\).jpg);
+    background-size: cover;
+}
+
+#grid-item9 {
+    background-image: url(../Images/grid-images\ \(9\).jpg);
+    background-size: cover;
+}
+
+/* ---- Copyright bar ---- */
+.copyright {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px max(20px, calc((100% - 1100px) / 2 + 20px));
+    background: var(--copyright-bg);
+}
+
+.copyright .left {
+    color: var(--copyright-text);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.social-links-foot {
+    display: flex;
+    gap: 18px;
+}
+
+.social-links-foot a {
+    color: var(--copyright-text);
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.social-links-foot a:hover {
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .main-footer>div {
+        flex-basis: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-footer {
+        flex-direction: column;
+    }
+
+    .main-footer>div {
+        flex-basis: auto;
+    }
+
+    .copyright {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px 20px;
+    }
+}
+
+.left-footer,
+.left-mid,
+.right-mid,
+.right-footer {
+    width: 20%;
+}
