@@ -10,7 +10,7 @@ button {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: "Zilla Slab", serif;
     scroll-behavior: smooth;
 }
 
@@ -24,18 +24,19 @@ button:focus-visible {
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 175px 0 140px;
 }
 
 .btn-primary {
     color: #fff;
-    height: 6vh;
+    height: 40px;
     font-size: 20px;
     background-color: #95c53d;
     border: 1px solid #89b73d;
     border-radius: 3px;
+    width: 160px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
@@ -43,9 +44,6 @@ button:hover {
     background-color: #78a62c;
 }
 
-.bold {
-    font-weight: 500;
-}
 
 
 /* =========================================================
@@ -56,11 +54,16 @@ button:hover {
     font-family: "Zilla Slab", serif;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: #95c53d;
-    height: 30px;
+    height: 45px;
     color: #fff;
     width: 100%;
+    border-bottom: 5px solid #e9e9e9;
+}
+
+.bold {
+    font-weight: 500;
 }
 
 .left-deal {
@@ -68,17 +71,30 @@ button:hover {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+}
+
+.left-deal p {
     font-style: italic;
-    font-weight: 300;
-    font-size: 18px;
+    font-weight: 200;
+    font-size: 16px;
+}
+
+.left-deal span {
+    font-weight: 700;
+    font-size: 17px;
 }
 
 .left-deal button {
-    padding: 3px;
+    color: #e1f0c7;
+    height: 27px;
+    width: 169px;
     border-radius: 3px;
-    border: 1px solid #78a62c;
-    background-color: #80ae34;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #7fad32;
+    border: 1px solid #7aa82d;
+    outline: 1px solid #8ab839;
+    box-shadow: 0px 0px 5px -10px #a8d26bff;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 .left-deal button:hover {
@@ -89,7 +105,7 @@ button:hover {
     border: none;
     background-color: #95c53d;
     color: #fff;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .right-deal button:hover {
@@ -109,7 +125,7 @@ button:hover {
 .social-links-head i {
     margin-right: 9px;
     font-size: 18px;
-    margin-top: 18px;
+    margin-top: 10px;
 }
 
 .navbar {
@@ -117,22 +133,24 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 110px;
+    height: 100px;
+    margin-top: -10px;
 }
 
 .navbar a img {
-    height: 110px;
+    height: 100px;
 }
 
 .navbar nav {
     display: flex;
-    gap: 20px;
+    gap: 45px;
 }
 
 nav a {
+    margin-top: 10px;
     text-decoration: none;
-    color: #707070;
-    font-size: 19px;
+    color: #919191;
+    font-size: 17px;
     font-weight: 600;
 }
 
@@ -141,7 +159,7 @@ nav a:hover {
 }
 
 .active {
-    color: #9bc43b;
+    color: #b7d680;
 }
 
 /* Hidden on desktop. Only shown below 767px (see media query). */
@@ -159,52 +177,68 @@ nav a:hover {
 ========================================================= */
 
 .hero {
-    aspect-ratio: 16/9;
-    height: 500px;
+    position: relative;
+    height: 440px;
     width: 100%;
-    background-image: url(../Images/Hero.png);
-    background-size: cover;
+    overflow: hidden;
+    background: url("../Images/Hero.png") center/cover no-repeat;
+    box-shadow:
+        inset 0 35px 40px -35px rgba(0, 0, 0, .3),
+        inset 0 -35px 40px -35px rgba(0, 0, 0, .3);
+    border-bottom: 10px solid #fefbfe;
 }
 
+
 .hero-content {
-    width: 60%;
-    padding: 8% 10% 0px 10%;
+    width: 70%;
+    padding: 7% 10% 0px 10%;
 }
 
 .hero-content h2 {
-    font-size: 48px;
-    color: #404042;
-    margin-bottom: 2%;
+    font-size: 60px;
+    color: #3f3e3d;
+    margin-bottom: 1px;
 }
 
 .hero-content h3 {
-    font-size: 25px;
+    font-size: 29px;
     color: #9bc749;
-    margin-bottom: 2%;
+    font-weight: 700;
+    margin-bottom: 2.5%;
 }
 
 .hero-content p {
-    color: #949ba3;
-    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #656a6e;
+    font-size: 18px;
+    line-height: 1.4;
     margin-bottom: 3%;
+    width: 75%;
+    letter-spacing: 0px;
+    word-spacing: -2px;
 }
 
 .hero-content p .bold {
-    color: #404042;
+    color: #3d4243;
     font-weight: bold;
+    font-size: 19px;
 }
 
 .hero-content h4 {
-    font-size: 18px;
-    color: #46474b;
+    font-size: 19px;
+    color: #3d4243;
     display: inline-block;
     margin-bottom: 2%;
 }
 
 .getnow {
-    margin-left: 3vw;
-    width: 8vw;
+    margin-left: 25px;
+    height: 40px;
+    width: 140px;
+    box-shadow: inset 0px 1px 1px #cbe187ff;
+    box-shadow: 0 2px 2px #00000044;
 }
+
 
 .getnow:hover {
     background-color: #89b73d;
@@ -216,10 +250,10 @@ nav a:hover {
 ========================================================= */
 
 .intro {
-    margin-top: 40px;
+    margin-top: 50px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-end;
+    justify-content: space-evenly;
 }
 
 .intro h3 .bold {
@@ -227,22 +261,27 @@ nav a:hover {
 }
 
 .intro h3 {
+    font-weight: 500;
     margin-bottom: 20px;
     font-size: 28px;
-    font-weight: 500;
     color: #404042;
 }
 
 .intro p {
-    max-width: 86%;
-    font-size: 18px;
-    color: #727981;
+    max-width: 60vw;
+    font-size: 20px;
+    color: #919191;
     font-weight: 500;
 }
 
+.intro p span {
+    font-weight: 700;
+}
+
 #purchase-btn {
-    align-self: flex-end;
-    width: 18vw;
+    width: 160px;
+    height: 40px;
+    box-shadow: inset 1px 1px 1px #cfe18cff;
 }
 
 
@@ -262,15 +301,45 @@ nav a:hover {
     max-width: 25%;
 }
 
+.raindrop {
+    height: 40px;
+    margin-bottom: -10px;
+    padding: 0;
+}
+
+.settings-icon {
+    height: 45px;
+    width: 42px;
+    margin: -10px 0 -10px 0;
+    padding: 0;
+}
+
+.phone {
+    height: 45px;
+    width: 42px;
+    margin: -10px 0 -10px 0;
+    padding: 0;
+}
+
+.headphone {
+    height: 45px;
+    width: 42px;
+    margin: -10px 0 -10px 0;
+    padding: 0;
+}
+
 .flex-itm h3 {
+    display: flex;
+    align-items: center;
     color: #68696d;
-    font-size: 22px;
-    margin-bottom: 14px;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .flex-itm p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #727981;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     margin-bottom: 10px;
     line-height: 1.4;
@@ -319,7 +388,10 @@ hr {
     color: #000;
 }
 
+
+
 .blogs h3 {
+    align-items: center;
     color: #46474b;
     font-size: 18px;
     margin-bottom: 8px;
@@ -340,10 +412,71 @@ hr {
     max-width: 24%;
 }
 
-.blog-grid-item img {
+#blog-grid-item-1 {
+    background-image: url(../Images/Grid-1.png);
+    background-size: cover;
+}
+
+#blog-grid-item-1 img {
+    background-color: #96c83a;
+}
+
+#blog-grid-item-2 {
+    background-image: url(../Images/Grid-2.png);
+    background-size: cover;
+}
+
+#blog-grid-item-3 {
+    background-size: cover;
+}
+
+#blog-grid-item-3,
+#blog-grid-item-4 {
+    position: relative;
+    overflow: hidden;
+    height: 170px;
+}
+
+#blog-grid-item-3 video,
+#blog-grid-item-4 video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#blog-grid-item-3 .img,
+#blog-grid-item-4 .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#blog-grid-item-3 .img img,
+#blog-grid-item-4 .img img {
+    width: 40px;
+    height: 40px;
+}
+
+#blog-grid-item-4 {
+    background-size: cover;
+}
+
+#blog-grid-item-1,
+#blog-grid-item-2,
+#blog-grid-item-3,
+#blog-grid-item-4 {
     height: 170px;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 28px;
+}
+
+.blog-grid-item img {
+    height: 40px;
+    width: 40px;
 }
 
 .post-date {
@@ -406,6 +539,10 @@ hr {
     background-color: #fff;
 }
 
+#quote {
+    height: 140px;
+}
+
 /* -------------------------
    Left side: quote slider
 -------------------------- */
@@ -456,6 +593,7 @@ hr {
 .author {
     display: flex;
     justify-content: flex-end;
+    align-content: center;
     align-items: center;
     gap: 15px;
     margin-top: -15px;
@@ -463,6 +601,7 @@ hr {
 
 .author i {
     font-size: 35px;
+    margin-bottom: 20px;
 }
 
 .author p {
@@ -471,6 +610,10 @@ hr {
 
 .author strong {
     color: #95c93d;
+}
+
+#author {
+    width: 190px;
 }
 
 /* -------------------------
@@ -594,8 +737,7 @@ hr {
 
 .client:hover img {
     transform: translateY(-8px) scale(1.04);
-    box-shadow:
-        0 15px 35px rgba(0, 0, 0, .18),
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .18),
         0 0 18px rgba(212, 175, 55, .18);
 
     border-color: rgba(212, 175, 55, .25);
@@ -804,15 +946,6 @@ hr {
     background-size: cover;
 }
 
-/* ---- Copyright bar ----
-   Note: the original used calc()/max() to keep the copyright
-   text centered under a ~1100px column while the green bar
-   still stretched edge to edge. Since calc()/max() aren't
-   allowed here, this uses simple fixed padding instead. On
-   very wide screens (well past 1200px) the text will sit
-   closer to the edges than before instead of staying centered
-   under a fixed column — everything from mobile up through a
-   normal desktop width looks identical. */
 .copyright {
     display: flex;
     flex-wrap: wrap;
@@ -851,10 +984,6 @@ hr {
     width: 20%;
 }
 
-button {
-    width: auto;
-    height: auto;
-}
 
 
 /* =========================================================
@@ -870,11 +999,6 @@ button {
         max-width: 100%;
     }
 
-    .btn-primary {
-        height: auto;
-        padding: 12px 20px;
-        font-size: 16px;
-    }
 
     /* ---- Announcement bar ---- */
     .sepcial-deals {
@@ -978,7 +1102,6 @@ button {
 
     #purchase-btn {
         align-self: flex-start;
-        width: auto;
     }
 
     /* ---- Services ---- */
@@ -1072,32 +1195,4 @@ button {
         flex-direction: column;
         text-align: center;
     }
-}
-
-.l-i_right button {
-    padding: 5px;
-    height: auto;
-
-}
-
-#purchase-btn {
-    align-self: flex-end;
-    width: auto;
-    height: auto;
-}
-
-.getnow {
-    margin-left: 3vw;
-    width: auto;
-    height: auto;
-}
-
-.left-deal button {
-    height: auto;
-    width: auto;
-    padding: 0;
-}
-
-.sepcial-deals {
-    height: auto;
 }

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 53">
+  <!-- Headband -->
+  <path d="M 24 30 C 24 15 30 12 38 12 C 46 12 52 16 52 28"
+        fill="none" stroke="#444444" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Left ear cup -->
+  <rect x="20" y="29" width="13" height="14" rx="4.5" fill="#c9c9c9" stroke="#444444" stroke-width="2.6"/>
+
+  <!-- Right ear cup -->
+  <rect x="44" y="29" width="13" height="14" rx="4.5" fill="#c9c9c9" stroke="#444444" stroke-width="2.6"/>
+
+  <!-- Boom mic arm -->
+  <path d="M 50 42 C 50 46.5 46 48.5 41 48"
+        fill="none" stroke="#444444" stroke-width="2.6" stroke-linecap="round"/>
+
+  <!-- Mic capsule -->
+  <rect x="35.5" y="44.5" width="6.5" height="6" rx="2.6" fill="#444444"/>
+</svg>

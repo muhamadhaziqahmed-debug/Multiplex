@@ -6,8 +6,10 @@
     <title>Multiplex</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="CSS/index.css" />
@@ -19,8 +21,8 @@
       <div id="displayChamge" class="sepcial-deals">
         <span class="left-deal">
           <p>
-            <span class="bold">Cheer Folks! .</span>This is a cool announcment area to inform your visitors about
-            special deals or events!
+            <span>Cheer Folks! </span>This is a cool announcment area to inform your visitors about special deals or
+            events!
           </p>
           <button class="Buy-on-themeforest">BUY ON THEMEFOREST</button>
         </span>
@@ -63,7 +65,7 @@
       <section class="hero">
         <div class="hero-content">
           <h2>Welcome to Multiplex.</h2>
-          <h3>Clean-cut and responsive wordpress theme.</h3>
+          <h3>Clean-cut and responsive WordPress theme.</h3>
           <p>
             Take a tour and check out all the features. We're sure you like the theme as well as it was fun for us to
             create it. <span class="bold"> You can trust! </span>
@@ -80,7 +82,7 @@
             <h3><span class="bold">Multiplex </span>is s clean-cut and responsive theme for products and services.</h3>
             <p>
               With Multiplex you can create interactive, modern and userfriendly websites on the fly. It has some badass
-              features, unlimited colors, cool premium sliders and much more! Holy Cow!
+              features, unlimited colors, cool premium sliders and much more! <span>Holy Cow!</span>
             </p>
           </div>
           <button id="purchase-btn" class="btn-primary">Purchase Now</button>
@@ -93,22 +95,22 @@
         <section class="services">
           <div class="flex">
             <div class="flex-itm">
-              <h3><i class="fa-solid fa-droplet"></i> Brand your Theme</h3>
+              <h3><img class="raindrop" src="SVG/Rain-drop.svg" alt="Raindroplets" /> Brand your Theme</h3>
               <p>Adapt the colors and logo of this theme easily and in second s to suite your companies look best.</p>
               <a href="#">Read More ></a>
             </div>
             <div class="flex-itm">
-              <h3><i class="fa-regular fa-credit-card"></i> Browser Compatible</h3>
+              <h3><img class="settings-icon" src="SVG/settings-icon.svg" alt="SVG" /> Browser Compatible</h3>
               <p>Adapt the colors and logo of this theme easily and in seconds to suite your companies look best.</p>
               <a href="#">Read More ></a>
             </div>
             <div class="flex-itm">
-              <h3><i class="fa-solid fa-mobile"></i> Mobile ready Layout</h3>
+              <h3><img class="phone" src="SVG/devices-icon.svg" alt="phone" /> Mobile ready Layout</h3>
               <p>Check it on your mobile devices or resize the browser to showcase the flexibility of this theme.</p>
               <a href="#">Read More ></a>
             </div>
             <div class="flex-itm">
-              <h3><i class="fa-solid fa-headset"></i> Great Support</h3>
+              <h3><img class="headphone" src="SVG/headphones-icon.svg" alt="headphone" /> Great Support</h3>
               <p>
                 We will do our best to answer all of your support requests as soon as possible. Our support is for free!
               </p>
@@ -131,25 +133,50 @@
           </span>
           <div class="blog-grid">
             <div class="blog-grid-item">
-              <img src="Images/Grid-1.png" alt="Standard blog post thumbnail" />
+              <span id="blog-grid-item-1">
+                <div class="img">
+                  <img src="SVG/list-icon.svg" />
+                </div>
+              </span>
+
               <h3>Strandard post with Image</h3>
               <p class="post-date">12. september 2012 / 2 comments</p>
               <p>Lorem ipsum dolor sit amet cit. deleniti aut, officia perspiciatis? Dolorem, repellat .</p>
             </div>
             <div class="blog-grid-item">
-              <img src="Images/Grid-2.png" alt="Gallery blog post thumbnail" />
+              <span id="blog-grid-item-2">
+                <div class="img">
+                  <img src="SVG/recolored_icon.png" />
+                </div>
+              </span>
               <h3>Gallery Blog Post</h3>
               <p class="post-date">11. september 2012 / 2 comments</p>
               <p>Lorem ipsum dolor spisicing elit. deleniti aut, officia perspiciatis? Dolorem, repellat .</p>
             </div>
             <div class="blog-grid-item">
-              <img src="Images/Grid-3.png" alt="Youtube video blog post thumbnail" />
+              <span id="blog-grid-item-3">
+                <video autoplay muted loop playsinline controls>
+                  <source src="videos/video1.mp4" type="video/mp4" />
+                </video>
+
+                <div class="img">
+                  <img src="SVG/movie.svg.png" alt="" />
+                </div>
+              </span>
               <h3>Videos from Youtube</h3>
               <p class="post-date">10. september 2012 / 2 comments</p>
               <p>Lorem ipsum dolor sit amet consectet elit. deleniti aut, officia perspiciatis? Dolorem, repellat .</p>
             </div>
             <div class="blog-grid-item">
-              <img src="Images/Grid-4.png" alt="Vimeo video blog post thumbnail" />
+              <span id="blog-grid-item-4">
+                <video autoplay muted loop playsinline class="background-video" controls>
+                  <source src="videos/video2.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div class="img">
+                  <img src="SVG/movie.svg.png" />
+                </div>
+              </span>
               <h3>And also videos from vimeo</h3>
               <p class="post-date">9. september 2012 / 2 comments</p>
               <p>Lorem ipsum dolor sit cing elit. deleniti aut, officia perspiciatis? Dolorem, repellat .</p>
