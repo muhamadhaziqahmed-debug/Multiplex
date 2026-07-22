@@ -10,6 +10,29 @@ cross.addEventListener('click', function () {
   displayChamge.style.display = 'none';
 });
 
+/* =========================================================
+   MOBILE NAVIGATION (hamburger menu)
+   Below 768px the nav links become a dropdown toggled by
+   the hamburger button. Above 768px this has no effect,
+   since the hamburger is hidden and the nav is always shown.
+========================================================= */
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileNav = document.querySelector('.navbar nav');
+
+hamburgerBtn.addEventListener('click', function () {
+  const isOpen = mobileNav.classList.toggle('nav-open');
+  hamburgerBtn.setAttribute('aria-expanded', isOpen);
+});
+
+// Close the mobile menu after a nav link is tapped, so it
+// doesn't stay open covering the page content.
+mobileNav.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    mobileNav.classList.remove('nav-open');
+    hamburgerBtn.setAttribute('aria-expanded', false);
+  });
+});
+
 const panel = document.querySelector('.panel');
 const tabButtons = document.querySelectorAll('.tab');
 

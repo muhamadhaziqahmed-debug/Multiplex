@@ -1,3 +1,7 @@
+/* =========================================================
+   GLOBAL RESET & BASE STYLES
+========================================================= */
+
 button {
     cursor: pointer;
 }
@@ -10,51 +14,9 @@ button {
     scroll-behavior: smooth;
 }
 
-:root {
-
-    /* Colors */
-    --white: #fff;
-    --primary-color: #95c53d;
-    /* buttons, top bar, active nav-ish accents */
-    --primary-hover: #89b73d;
-    /* border/hover shade of the primary green */
-    --primary-dark: #78a62c;
-    /* darkest green, used for hover states */
-    --accent-green: #95c93d;
-    /* the slightly different green used only in testimonials/tabs */
-    --text-dark: #404042;
-    /* main headings */
-    --text-gray: #707070;
-    /* nav links, blog text */
-    --text-muted: #727981;
-    /* paragraph text (intro, services) */
-    --text-body: #777;
-    /* paragraph text (testimonials, tabs) */
-    --text-heading-alt: #46474b;
-    /* a couple of secondary headings */
-    --text-heading-secondary: #444;
-    /* testimonials + lower-intro headings */
-    --border-light: #eee;
-    --border-medium: #ddd;
-    --bg-quote: #f5f5f5;
-
-    /* Spacing (only values that repeat 2+ times get a variable) */
-    --space-2xs: 8px;
-    --space-xs: 10px;
-    --space-sm: 15px;
-    --space-md: 20px;
-    --space-lg: 25px;
-    --space-xl: 40px;
-    --space-2xl: 60px;
-    --space-3xl: 70px;
-
-    /* Effects */
-    --radius-sm: 3px;
-    --shadow-btn: 0px 2px 2px rgba(0, 0, 0, 0.4);
-}
-
 body {
-    background-color: var(--white);
+    background-color: #fff;
+    overflow-x: hidden;
 }
 
 button:focus-visible {
@@ -62,26 +24,32 @@ button:focus-visible {
 }
 
 .container {
-    width: min(1200px, 90%);
-    margin-inline: auto;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .btn-primary {
-    color: var(--white);
+    color: #fff;
     height: 6vh;
     font-size: 20px;
-    background-color: var(--primary-color);
-    border: 1px solid var(--primary-hover);
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-btn);
+    background-color: #95c53d;
+    border: 1px solid #89b73d;
+    border-radius: 3px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 button:hover {
-    background-color: var(--primary-dark);
+    background-color: #78a62c;
 }
 
+.bold {
+    font-weight: 500;
+}
+
+
 /* =========================================================
-   ANNOUNCEMENT BAR (top green strip)
+   HEADER: ANNOUNCEMENT BAR
 ========================================================= */
 
 .sepcial-deals {
@@ -89,16 +57,17 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: var(--primary-color);
+    background-color: #95c53d;
     height: 30px;
-    color: var(--white);
+    color: #fff;
+    width: 100%;
 }
 
 .left-deal {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-md);
+    gap: 20px;
     font-style: italic;
     font-weight: 300;
     font-size: 18px;
@@ -106,24 +75,20 @@ button:hover {
 
 .left-deal button {
     padding: 3px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--primary-dark);
+    border-radius: 3px;
+    border: 1px solid #78a62c;
     background-color: #80ae34;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .left-deal button:hover {
-    background-color: var(--primary-color);
-}
-
-.bold {
-    font-weight: 500;
+    background-color: #95c53d;
 }
 
 .right-deal button {
     border: none;
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: #95c53d;
+    color: #fff;
     font-size: 18px;
 }
 
@@ -131,8 +96,9 @@ button:hover {
     color: #666;
 }
 
+
 /* =========================================================
-   HEADER / NAVBAR
+   HEADER: SOCIAL LINKS + NAVBAR
 ========================================================= */
 
 .social-links-head {
@@ -147,6 +113,7 @@ button:hover {
 }
 
 .navbar {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -159,12 +126,12 @@ button:hover {
 
 .navbar nav {
     display: flex;
-    gap: var(--space-md);
+    gap: 20px;
 }
 
 nav a {
     text-decoration: none;
-    color: var(--text-gray);
+    color: #707070;
     font-size: 19px;
     font-weight: 600;
 }
@@ -176,6 +143,16 @@ nav a:hover {
 .active {
     color: #9bc43b;
 }
+
+/* Hidden on desktop. Only shown below 767px (see media query). */
+.hamburger {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 28px;
+    color: #404042;
+}
+
 
 /* =========================================================
    HERO
@@ -196,7 +173,7 @@ nav a:hover {
 
 .hero-content h2 {
     font-size: 48px;
-    color: var(--text-dark);
+    color: #404042;
     margin-bottom: 2%;
 }
 
@@ -213,13 +190,13 @@ nav a:hover {
 }
 
 .hero-content p .bold {
-    color: var(--text-dark);
+    color: #404042;
     font-weight: bold;
 }
 
 .hero-content h4 {
     font-size: 18px;
-    color: var(--text-heading-alt);
+    color: #46474b;
     display: inline-block;
     margin-bottom: 2%;
 }
@@ -230,15 +207,16 @@ nav a:hover {
 }
 
 .getnow:hover {
-    background-color: var(--primary-hover);
+    background-color: #89b73d;
 }
+
 
 /* =========================================================
    INTRO
 ========================================================= */
 
 .intro {
-    margin-top: var(--space-xl);
+    margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -249,35 +227,35 @@ nav a:hover {
 }
 
 .intro h3 {
-    margin-bottom: var(--space-md);
+    margin-bottom: 20px;
     font-size: 28px;
     font-weight: 500;
-    color: var(--text-dark);
+    color: #404042;
 }
 
 .intro p {
     max-width: 86%;
     font-size: 18px;
-    color: var(--text-muted);
+    color: #727981;
     font-weight: 500;
 }
-
 
 #purchase-btn {
     align-self: flex-end;
     width: 18vw;
 }
 
+
 /* =========================================================
    SERVICES
 ========================================================= */
 
 .flex {
-    margin: var(--space-3xl) 0px var(--space-3xl) 0px;
+    margin: 70px 0px 70px 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-md);
+    gap: 20px;
 }
 
 .flex-itm {
@@ -291,28 +269,29 @@ nav a:hover {
 }
 
 .flex-itm p {
-    color: var(--text-muted);
+    color: #727981;
     font-size: 16px;
     font-weight: 400;
-    margin-bottom: var(--space-xs);
+    margin-bottom: 10px;
     line-height: 1.4;
 }
 
 hr {
-    color: var(--border-light);
-    border: 1px solid var(--border-light);
+    color: #eee;
+    border: 1px solid #eee;
 }
 
 .flex-itm a {
     display: inline-block;
     color: #91bf45;
     text-decoration: none;
-    margin-top: var(--space-xs);
+    margin-top: 10px;
 }
 
 .flex-itm a:hover {
-    color: var(--primary-dark);
+    color: #78a62c;
 }
+
 
 /* =========================================================
    BLOG GRID
@@ -327,13 +306,13 @@ hr {
 .left {
     margin-right: 2.2vw;
     display: flex;
-    gap: var(--space-sm);
+    gap: 15px;
 }
 
 .left button {
     border: none;
     font-size: 20px;
-    color: var(--text-muted);
+    color: #727981;
 }
 
 .left button:hover {
@@ -341,42 +320,43 @@ hr {
 }
 
 .blogs h3 {
-    color: var(--text-heading-alt);
+    color: #46474b;
     font-size: 18px;
-    margin-bottom: var(--space-2xs);
+    margin-bottom: 8px;
 }
 
 .blogs h3 span {
-    color: var(--primary-dark);
+    color: #78a62c;
 }
 
 .blog-grid {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: var(--space-3xl);
+    margin-bottom: 70px;
 }
 
 .blog-grid-item {
-    max-width: 25%;
+    max-width: 24%;
 }
 
 .blog-grid-item img {
     height: 170px;
-    width: 240px;
-    aspect-ratio: 1/1.5;
+    width: 100%;
+    aspect-ratio: 1 / 1;
 }
 
 .post-date {
     display: inline-block;
-    margin-bottom: var(--space-xs);
+    margin-bottom: 10px;
     color: #838a92;
 }
 
 .blog-grid-item p {
-    color: var(--text-gray);
+    color: #707070;
     width: 90%;
 }
+
 
 /* =========================================================
    TESTIMONIALS SECTION
@@ -385,8 +365,8 @@ hr {
 .testimonials {
     display: flex;
     justify-content: space-between;
-    gap: var(--space-xl);
-    margin: var(--space-2xl) 0;
+    gap: 40px;
+    margin: 60px 0;
 }
 
 .testimonials-left,
@@ -394,22 +374,21 @@ hr {
     flex: 1;
 }
 
-/* Headings */
 .testimonials h3 {
     font-size: 24px;
-    margin-bottom: var(--space-md);
-    color: var(--text-heading-secondary);
+    margin-bottom: 20px;
+    color: #444;
 }
 
 .testimonials h3 span {
-    color: var(--accent-green);
+    color: #95c93d;
 }
 
 .testimonial-header {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-md);
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .testimonial-header h3 {
@@ -424,7 +403,7 @@ hr {
 .slider-buttons button {
     border: none;
     outline: none;
-    background-color: var(--white);
+    background-color: #fff;
 }
 
 /* -------------------------
@@ -436,9 +415,9 @@ hr {
 }
 
 .quote {
-    background: var(--bg-quote);
-    padding: var(--space-lg);
-    color: var(--text-body);
+    background: #f5f5f5;
+    padding: 25px;
+    color: #777;
     font-size: 18px;
     font-style: italic;
     line-height: 1.7;
@@ -454,11 +433,11 @@ hr {
 
     border-width: 18px 18px 0;
     border-style: solid;
-    border-color: var(--bg-quote) transparent transparent;
+    border-color: #f5f5f5 transparent transparent;
 }
 
 .dots {
-    margin-top: var(--space-lg);
+    margin-top: 25px;
 }
 
 .dot {
@@ -467,18 +446,18 @@ hr {
     background: #ccc;
     display: inline-block;
     border-radius: 50%;
-    margin-right: var(--space-2xs);
+    margin-right: 8px;
 }
 
 .dot.active {
-    background: var(--accent-green);
+    background: #95c93d;
 }
 
 .author {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: var(--space-sm);
+    gap: 15px;
     margin-top: -15px;
 }
 
@@ -491,7 +470,7 @@ hr {
 }
 
 .author strong {
-    color: var(--accent-green);
+    color: #95c93d;
 }
 
 /* -------------------------
@@ -511,43 +490,44 @@ hr {
 
 .tab {
     border: none;
-    padding: var(--space-sm) var(--space-lg);
-    border-left: 1px solid var(--border-medium);
+    padding: 15px 25px;
+    border-left: 1px solid #ddd;
     background: #f4f4f4;
     font-weight: bold;
     cursor: pointer;
 }
 
 .tab.active {
-    background: var(--white);
-    border-top: 4px solid var(--accent-green);
+    background: #fff;
+    border-top: 4px solid #95c93d;
 }
 
 .panel {
-    border: 1px solid var(--border-medium);
+    border: 1px solid #ddd;
     border-top: none;
-    padding: var(--space-lg);
+    padding: 25px;
 }
 
 .panel p {
-    color: var(--text-body);
+    color: #777;
     line-height: 1.7;
-    margin-bottom: var(--space-lg);
+    margin-bottom: 25px;
 }
 
 .columns {
     display: flex;
-    gap: var(--space-2xl);
+    gap: 60px;
 }
 
 .list {
     padding-left: 18px;
-    color: var(--text-body);
+    color: #777;
 }
 
 .list li {
     margin-bottom: 12px;
 }
+
 
 /* =========================================================
    LOWER INTRO STRIP
@@ -559,15 +539,15 @@ hr {
     justify-content: space-between;
     width: 100%;
     margin-bottom: 50px;
-    padding: var(--space-md);
+    padding: 20px;
     border: 1px solid #eff;
     line-height: 1.9;
 }
 
 .l-i_left h3 {
     font-size: 22px;
-    margin-bottom: var(--space-md);
-    color: var(--text-heading-secondary);
+    margin-bottom: 20px;
+    color: #444;
     font-weight: 500;
 }
 
@@ -581,6 +561,7 @@ hr {
     font-weight: 700;
 }
 
+
 /* =========================================================
    OUR CLIENTS
 ========================================================= */
@@ -590,7 +571,7 @@ hr {
 }
 
 .our-clients h3 span {
-    color: var(--primary-dark);
+    color: #78a62c;
 }
 
 .our-clients-cont {
@@ -599,7 +580,7 @@ hr {
     align-items: center;
     justify-content: space-evenly;
     margin: auto;
-    margin-bottom: var(--space-3xl);
+    margin-bottom: 70px;
 }
 
 .client img {
@@ -620,19 +601,12 @@ hr {
     border-color: rgba(212, 175, 55, .25);
 }
 
-/* ==========================================================================
-   Multiplex Footer
-   ========================================================================== */
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .site-footer {
-    --footer-bg: #3b3b3b;
-    --footer-border: #4a4a4a;
-    --footer-text: #b0b0b0;
-    --footer-heading: #ffffff;
-    --footer-green: #8dc63f;
-    --copyright-bg: #9acd32;
-    --copyright-text: #3b3b3b;
-
     font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -644,7 +618,7 @@ hr {
     max-width: 100%;
     margin: 0 auto;
     padding: 50px 5vw;
-    background: var(--footer-bg);
+    background: #3b3b3b;
     border-top: 10px solid #222;
 }
 
@@ -659,7 +633,6 @@ hr {
     justify-content: space-around;
 }
 
-
 /* ---- Column 1: About / logo ---- */
 .left-footer {
     flex-basis: 260px;
@@ -673,7 +646,7 @@ hr {
 
 .left-footer h5 {
     margin: 0 0 14px;
-    color: var(--footer-heading);
+    color: #ffffff;
     font-size: 14px;
     font-weight: 700;
     line-height: 1.5;
@@ -681,13 +654,13 @@ hr {
 
 .left-footer p {
     margin: 0;
-    color: var(--footer-text);
+    color: #b0b0b0;
     font-size: 13px;
     line-height: 1.8;
 }
 
 .left-footer p b {
-    color: var(--footer-heading);
+    color: #ffffff;
 }
 
 /* ---- Shared column headings ---- */
@@ -696,8 +669,8 @@ hr {
 .right-footer h3 {
     margin: 0 0 20px;
     padding-bottom: 14px;
-    border-bottom: 1px solid var(--footer-border);
-    color: var(--footer-heading);
+    border-bottom: 1px solid #4a4a4a;
+    color: #ffffff;
     font-size: 15px;
     font-weight: 700;
 }
@@ -708,7 +681,7 @@ hr {
     align-items: flex-start;
     gap: 12px;
     padding: 14px 0;
-    border-bottom: 1px solid var(--footer-border);
+    border-bottom: 1px solid #4a4a4a;
 }
 
 .post-footer:last-child {
@@ -726,7 +699,7 @@ hr {
 
 .post-footer-text p {
     margin: 0;
-    color: var(--footer-heading);
+    color: #ffffff;
     font-size: 13px;
     font-weight: 600;
     line-height: 1.45;
@@ -742,8 +715,8 @@ hr {
 .twitter-post {
     padding-bottom: 18px;
     margin-bottom: 18px;
-    border-bottom: 1px solid var(--footer-border);
-    color: var(--footer-text);
+    border-bottom: 1px solid #4a4a4a;
+    color: #b0b0b0;
     font-size: 13px;
     line-height: 1.7;
 }
@@ -772,7 +745,7 @@ hr {
 }
 
 .green {
-    color: var(--footer-green);
+    color: #8dc63f;
 }
 
 /* ---- Column 4: Flickr grid ---- */
@@ -831,19 +804,27 @@ hr {
     background-size: cover;
 }
 
-/* ---- Copyright bar ---- */
+/* ---- Copyright bar ----
+   Note: the original used calc()/max() to keep the copyright
+   text centered under a ~1100px column while the green bar
+   still stretched edge to edge. Since calc()/max() aren't
+   allowed here, this uses simple fixed padding instead. On
+   very wide screens (well past 1200px) the text will sit
+   closer to the edges than before instead of staying centered
+   under a fixed column — everything from mobile up through a
+   normal desktop width looks identical. */
 .copyright {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     align-items: center;
     justify-content: space-between;
-    padding: 10px max(20px, calc((100% - 1100px) / 2 + 20px));
-    background: var(--copyright-bg);
+    padding: 10px 20px;
+    background: #9acd32;
 }
 
 .copyright .left {
-    color: var(--copyright-text);
+    color: #3b3b3b;
     font-size: 13px;
     font-weight: 600;
 }
@@ -854,7 +835,7 @@ hr {
 }
 
 .social-links-foot a {
-    color: var(--copyright-text);
+    color: #3b3b3b;
     font-size: 15px;
     transition: color 0.2s ease;
 }
@@ -863,32 +844,260 @@ hr {
     color: #ffffff;
 }
 
-
-@media (max-width: 900px) {
-    .main-footer>div {
-        flex-basis: 45%;
-    }
-}
-
-@media (max-width: 600px) {
-    .main-footer {
-        flex-direction: column;
-    }
-
-    .main-footer>div {
-        flex-basis: auto;
-    }
-
-    .copyright {
-        flex-direction: column;
-        text-align: center;
-        padding: 16px 20px;
-    }
-}
-
 .left-footer,
 .left-mid,
 .right-mid,
 .right-footer {
     width: 20%;
+}
+
+button {
+    width: auto;
+    height: auto;
+}
+
+
+/* =========================================================
+   MOBILE LAYOUT (300px - 767px)
+   Everything below only applies on small screens. Desktop
+   styles above are untouched.
+========================================================= */
+
+@media (max-width: 767px) {
+
+    /* ---- Global ---- */
+    img {
+        max-width: 100%;
+    }
+
+    .btn-primary {
+        height: auto;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+
+    /* ---- Announcement bar ---- */
+    .sepcial-deals {
+        flex-direction: column;
+        height: 40px;
+        gap: 8px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .left-deal {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    /* ---- Header / navbar ---- */
+    .social-links-head {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .navbar {
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .navbar a img {
+        height: 60px;
+    }
+
+    /* Hamburger button becomes visible on mobile */
+    .hamburger {
+        display: block;
+    }
+
+    /* Nav links become a dropdown, hidden until toggled open by JS */
+    .navbar nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        background: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        z-index: 10;
+    }
+
+    .navbar nav.nav-open {
+        display: flex;
+    }
+
+    .navbar nav a {
+        padding: 14px 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* ---- Hero ---- */
+    .hero {
+        height: auto;
+        aspect-ratio: auto;
+        background-position: center;
+        padding: 40px 0;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding: 0 5%;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
+
+    .hero-content h3 {
+        font-size: 20px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .getnow {
+        margin-left: 0;
+        margin-top: 10px;
+        width: auto;
+    }
+
+    /* ---- Intro ---- */
+    .intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .intro p {
+        max-width: 100%;
+    }
+
+    #purchase-btn {
+        align-self: flex-start;
+        width: auto;
+    }
+
+    /* ---- Services ---- */
+    .flex {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 40px 0;
+        gap: 30px;
+    }
+
+    .flex-itm {
+        max-width: 100%;
+    }
+
+    /* ---- Blog grid ---- */
+    .blogs span {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .blog-grid {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .blog-grid-item {
+        max-width: 100%;
+    }
+
+    .blog-grid-item img {
+        height: 70%;
+    }
+
+    /* ---- Testimonials ---- */
+    .testimonials {
+        flex-direction: column;
+        gap: 30px;
+        margin: 40px 0;
+    }
+
+    .columns {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* ---- Lower intro strip ---- */
+    .lower-intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    /* ---- Our clients ---- */
+    .our-clients-cont {
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .client img {
+        height: 100px;
+        width: 100px;
+    }
+
+    /* ---- Footer ---- */
+    .make-footer-center {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .left-footer,
+    .left-mid,
+    .right-mid,
+    .right-footer {
+        width: 100%;
+    }
+
+    .left-footer img {
+        width: 180px;
+    }
+
+    .post-footer,
+    .twitter-post {
+        text-align: left;
+    }
+
+    .copyright {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.l-i_right button {
+    padding: 5px;
+    height: auto;
+
+}
+
+#purchase-btn {
+    align-self: flex-end;
+    width: auto;
+    height: auto;
+}
+
+.getnow {
+    margin-left: 3vw;
+    width: auto;
+    height: auto;
+}
+
+.left-deal button {
+    height: auto;
+    width: auto;
+    padding: 0;
+}
+
+.sepcial-deals {
+    height: auto;
 }
