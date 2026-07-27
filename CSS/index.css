@@ -1244,12 +1244,22 @@ hr {
         flex-direction: column;
         gap: 8px;
         text-align: center;
-        font-size: 8px;
-        display: inline-block;
+        display: inline;
+    }
+
+    .left-deal p,
+    .left-deal span {
+        font-size: 14px;
+        font-weight: 400;
     }
 
     .right-deal {
-        display: inline-block;
+        display: inline;
+    }
+
+    .left-deal button {
+        width: 120px;
+        font-size: 10px;
     }
 
     /* ---- Header / navbar ---- */
