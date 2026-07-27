@@ -1,18 +1,69 @@
-/* =========================================================
-   GLOBAL RESET & BASE STYLES
-========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
 
 button {
     cursor: pointer;
 }
 
-* {
+/* Global Reset */
+*,
+*::before,
+*::after {
+    font-family: "Zilla slab" sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Zilla Slab", serif;
+
+    /* Better text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+
+    /* Prevent ugly tap highlight on mobile */
+    -webkit-tap-highlight-color: transparent;
+
+    /* Better word wrapping */
+    word-wrap: break-word;
+
+    /* Consistent border calculations */
+    border: 0 solid transparent;
+}
+
+html {
     scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid #7c3aed;
+    outline-offset: 3px;
+}
+
+html,
+body {
+    overflow-x: hidden;
 }
 
 body {
@@ -810,27 +861,51 @@ hr {
     color: #78a62c;
 }
 
-.our-clients-cont {
-    padding: 3vh;
+.crousel {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
     margin: auto;
     margin-bottom: 70px;
+    overflow-x: auto;
 }
 
-.client img {
-    aspect-ratio: 1/1;
-    height: 150px;
-    width: 150px;
-    border-radius: 25%;
+.crousel::-webkit-scrollbar {
+    display: none;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    animation: spin 9s infinite linear;
+    padding: 1em;
+}
+
+.card {
+    flex: 0 0 5em;
+}
+
+.card img {
+    aspect-ratio: 16/9;
+    height: 120px;
+    width: 213px;
+    border-radius: 25px;
     border: 1px solid rgba(255, 255, 255, .05);
-
+    transition: all .3s ease;
 }
 
-transition: all .3s ease;
+@keyframes spin {
+    from {
+        translate: 0;
+    }
 
-.client:hover img {
+    to {
+        translate: -100%;
+    }
+}
+
+.card:hover img {
     transform: translateY(-8px) scale(1.04);
     box-shadow: 0 15px 35px rgba(0, 0, 0, .18),
         0 0 18px rgba(212, 175, 55, .18);
@@ -913,7 +988,7 @@ transition: all .3s ease;
     margin: 0 0 20px;
     padding-bottom: 0px;
     color: #919191;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
 }
 
@@ -943,7 +1018,7 @@ transition: all .3s ease;
     margin: 0;
     color: #c5c5c5;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.45;
 }
 
@@ -971,7 +1046,7 @@ transition: all .3s ease;
 
 .twitter-post p {
     margin: 0 0 6px;
-    font-size: 16px;
+    font-size: 14px;
     color: #f4f4f4;
 }
 
