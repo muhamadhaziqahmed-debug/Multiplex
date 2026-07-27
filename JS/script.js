@@ -207,3 +207,29 @@ showTestimonial(currentIndex);
 
 // Auto-advance to the next testimonial every 5 seconds.
 setInterval(goToNextTestimonial, 5000);
+
+const slider_img = document.querySelector('.slider-img');
+
+const images = ['Grid-2.png', 'Grid2 mark2.png', 'Grid2 mark3.png', 'Grid2 mark4.png'];
+
+let i = 0;
+
+function prev() {
+  i--;
+
+  if (i < 0) i = images.length - 1;
+
+  setImg();
+}
+
+function next() {
+  i++;
+
+  if (i >= images.length) i = 0;
+
+  setImg();
+}
+
+function setImg() {
+  slider_img.src = 'Images/' + images[i];
+}
