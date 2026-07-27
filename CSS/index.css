@@ -455,15 +455,27 @@ hr {
     display: inline-block;
 }
 
+/* .blog-grid is the fixed-width "window"; .blog-grid-track (built in
+   JS) is the strip of cards that actually slides inside it. */
 .blog-grid {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    overflow: hidden;
     margin-bottom: 70px;
 }
 
+.blog-grid-track {
+    display: flex;
+    align-items: flex-start;
+    /* 3 copies of the 4 cards sit side by side so there's always a
+       card ready to slide in from either direction. */
+    width: 300%;
+    transition: transform 0.4s ease;
+}
+
 .blog-grid-item {
-    max-width: 24%;
+    /* 12 cards fill the 300%-wide track: 8% card + 0.3333% gap = 8.3333% per slot */
+    flex: 0 0 8%;
+    max-width: 8%;
+    margin-right: 0.3333%;
 }
 
 #blog-grid-item-1 {
@@ -1301,13 +1313,30 @@ hr {
         gap: 10px;
     }
 
+    /* Carousel sliding is disabled on mobile: the window is left
+       unclipped and the track just becomes a plain vertical stack
+       of the 4 real cards (clones hidden below). */
     .blog-grid {
+        overflow: visible;
+    }
+
+    .blog-grid-track {
         flex-direction: column;
+        align-items: stretch;
+        width: auto;
         gap: 25px;
+        transform: none !important;
+        transition: none;
     }
 
     .blog-grid-item {
+        flex: none;
         max-width: 100%;
+        margin-right: 0;
+    }
+
+    .blog-clone {
+        display: none;
     }
 
     .blog-grid-item img {

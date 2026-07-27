@@ -33,6 +33,102 @@ mobileNav.querySelectorAll('a').forEach((link) => {
   });
 });
 
+/* =========================================================
+   BLOG CAROUSEL (prev/next)
+   The blog section only has 4 real cards, which isn't enough
+   to slide "infinitely" on its own. So we clone the 4 cards
+   once before themselves and once after themselves (12 cards
+   total) and place them in a track that we slide with
+   transform. Whichever direction we slide, there's always a
+   ready-made clone waiting to come into view.
+
+   Once we've slid a full copy's width away from the middle
+   copy, we jump straight back to the middle copy with no
+   transition. Because the clones are identical to the
+   originals, that jump is invisible, and the loop can repeat
+   forever.
+========================================================= */
+const blogGrid = document.querySelector('.blog-grid');
+const blogTrack = document.createElement('div');
+blogTrack.className = 'blog-grid-track';
+
+const originalBlogItems = Array.from(blogGrid.children);
+
+function cloneBlogItems() {
+  return originalBlogItems.map((item) => {
+    const clone = item.cloneNode(true);
+    clone.classList.add('blog-clone');
+    return clone;
+  });
+}
+
+const blogItemsBefore = cloneBlogItems();
+const blogItemsAfter = cloneBlogItems();
+
+[...blogItemsBefore, ...originalBlogItems, ...blogItemsAfter].forEach((item) => {
+  blogTrack.appendChild(item);
+});
+
+blogGrid.innerHTML = '';
+blogGrid.appendChild(blogTrack);
+
+const BLOG_ITEM_COUNT = originalBlogItems.length; // 4
+const BLOG_STEP_PERCENT = 100 / (BLOG_ITEM_COUNT * 3); // one card's share of the track
+const BLOG_TRANSITION_MS = 400; // keep in sync with the CSS transition duration
+
+let blogPosition = BLOG_ITEM_COUNT; // start on the middle (real) copy
+let blogIsAnimating = false;
+
+const blogNextBtn = document.getElementById('next');
+const blogPrevBtn = document.getElementById('prev');
+
+function setBlogTransform(withTransition) {
+  if (!withTransition) {
+    blogTrack.style.transition = 'none';
+  }
+
+  blogTrack.style.transform = `translateX(-${(blogPosition * BLOG_STEP_PERCENT).toFixed(4)}%)`;
+
+  if (!withTransition) {
+    // Force the browser to apply the jump immediately, before we
+    // turn transitions back on for the next slide.
+    void blogTrack.offsetWidth;
+    blogTrack.style.transition = '';
+  }
+}
+
+setBlogTransform(false);
+
+function slideBlog(direction) {
+  if (blogIsAnimating) return; // ignore extra clicks until the current slide finishes
+
+  blogIsAnimating = true;
+  blogNextBtn.disabled = true;
+  blogPrevBtn.disabled = true;
+
+  blogPosition += direction;
+  setBlogTransform(true);
+
+  setTimeout(() => {
+    // Past one full copy in either direction: snap back to the
+    // middle copy instantly. It looks identical, so no jump is seen.
+    if (blogPosition >= BLOG_ITEM_COUNT * 2) {
+      blogPosition -= BLOG_ITEM_COUNT;
+      setBlogTransform(false);
+    } else if (blogPosition <= 0) {
+      blogPosition += BLOG_ITEM_COUNT;
+      setBlogTransform(false);
+    }
+
+    blogIsAnimating = false;
+    blogNextBtn.disabled = false;
+    blogPrevBtn.disabled = false;
+  }, BLOG_TRANSITION_MS);
+}
+
+blogNextBtn.addEventListener('click', () => slideBlog(1));
+blogPrevBtn.addEventListener('click', () => slideBlog(-1));
+
 const panel = document.querySelector('.panel');
 const tabButtons = document.querySelectorAll('.tab');
 
