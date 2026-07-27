@@ -77,8 +77,12 @@ button:focus-visible {
 
 .container {
     width: 100%;
+    /* Caps the content width on very large / 4K-8K screens so it
+       doesn't stretch edge-to-edge. Has zero effect below 1920px,
+       so the 768px-1919px desktop/laptop layout is untouched. */
+    max-width: 1920px;
     margin: 0 auto;
-    padding: 0 175px 0 140px;
+    padding: 0 13% 0 12%;
 }
 
 .btn-primary {
@@ -88,7 +92,7 @@ button:focus-visible {
     background-color: #95c53d;
     border: 1px solid #89b73d;
     border-radius: 3px;
-    width: 160px;
+    width: 165px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
@@ -187,6 +191,12 @@ button:hover {
     justify-content: space-between;
     height: 100px;
     margin-top: -10px;
+    /* Safety net only: wraps to a second row instead of overflowing
+       horizontally if the logo + nav links ever run out of room
+       (e.g. narrow end of the 768px-1919px range). Has no visual
+       effect whenever everything already fits on one line. */
+    flex-wrap: wrap;
+    row-gap: 10px;
 }
 
 .navbar a img {
@@ -196,6 +206,8 @@ button:hover {
 .navbar nav {
     display: flex;
     gap: 45px;
+    /* Same safety net as above, applied to the links themselves. */
+    flex-wrap: wrap;
 }
 
 nav a {
@@ -243,6 +255,11 @@ nav a:hover {
 
 .hero-content {
     width: 70%;
+    /* Caps the hero text block on very large screens (1344px = 70%
+       of the 1920px "Desktop Large" breakpoint) so lines of text
+       don't stretch absurdly wide on 4K/8K monitors. Below ~1920px
+       viewport this is identical to width: 70%. */
+    width: min(70%, 1344px);
     padding: 7% 10% 0px 10%;
 }
 
@@ -321,6 +338,10 @@ nav a:hover {
 
 .intro p {
     max-width: 60vw;
+    /* Same idea as hero-content: 1152px = 60% of the 1920px
+       breakpoint, so paragraph lines stay readable on ultra-wide
+       screens without changing anything below ~1920px viewport. */
+    max-width: min(60vw, 1152px);
     font-size: 20px;
     color: #919191;
     font-weight: 500;
@@ -331,7 +352,7 @@ nav a:hover {
 }
 
 #purchase-btn {
-    width: 160px;
+    width: 165px;
     height: 40px;
     box-shadow: inset 1px 1px 1px #cfe18cff;
 }
@@ -660,6 +681,9 @@ hr {
     align-items: center;
     gap: 15px;
     margin-bottom: 20px;
+    /* Safety net so the heading + slider buttons never force a
+       horizontal overflow on very narrow widths. */
+    flex-wrap: wrap;
 }
 
 .testimonial-header h3 {
@@ -685,7 +709,10 @@ hr {
 }
 
 #quote {
-    height: 140px;
+    /* min-height instead of a fixed height: keeps the same visual
+       size when the quote fits, but lets the box grow instead of
+       clipping text on narrower screens where it wraps to more lines. */
+    min-height: 140px;
 }
 
 /* -------------------------
@@ -770,6 +797,9 @@ hr {
     list-style: none;
     padding: 0;
     margin: 0;
+    /* Safety net: wraps to a second row instead of overflowing
+       horizontally if the panel becomes too narrow for all 3 tabs. */
+    flex-wrap: wrap;
 }
 
 .tabs li {
@@ -956,6 +986,9 @@ hr {
     align-items: flex-start;
     justify-content: space-around;
     max-width: 90%;
+    /* Also caps the footer content at 1920px on very large screens,
+       identical to 90% below that point. */
+    max-width: min(90%, 1920px);
 }
 
 /* ---- Column 1: About / logo ---- */
@@ -1189,25 +1222,39 @@ hr {
         max-width: 100%;
     }
 
+    /* ---- Container ---- */
+    /* The desktop container uses large fixed side padding (175px /
+       140px) which would eat almost the entire mobile viewport.
+       Swap it for small, even padding on small screens. */
+    .container {
+        padding: 0 20px;
+    }
+
 
     /* ---- Announcement bar ---- */
     .sepcial-deals {
-        flex-direction: column;
-        height: 40px;
+        height: 80px;
         gap: 8px;
         text-align: center;
         width: 100%;
+        display: inline-block;
     }
 
     .left-deal {
         flex-direction: column;
         gap: 8px;
         text-align: center;
+        font-size: 8px;
+        display: inline-block;
+    }
+
+    .right-deal {
+        display: inline-block;
     }
 
     /* ---- Header / navbar ---- */
     .social-links-head {
-        text-align: center;
+        text-align: right;
         margin-bottom: 10px;
     }
 
@@ -1223,6 +1270,11 @@ hr {
     /* Hamburger button becomes visible on mobile */
     .hamburger {
         display: block;
+    }
+
+    .hamburger:hover {
+        background-color: #fff;
+        color: #89b73d;
     }
 
     /* Nav links become a dropdown, hidden until toggled open by JS */
@@ -1271,6 +1323,9 @@ hr {
 
     .hero-content p {
         font-size: 16px;
+        /* Full width on mobile instead of 75% so the copy stays
+           readable instead of wrapping into a very narrow column. */
+        width: 100%;
     }
 
     .getnow {
@@ -1339,10 +1394,6 @@ hr {
         display: none;
     }
 
-    .blog-grid-item img {
-        height: 70%;
-    }
-
     /* ---- Testimonials ---- */
     .testimonials {
         flex-direction: column;
@@ -1387,6 +1438,18 @@ hr {
     .right-mid,
     .right-footer {
         width: 100%;
+    }
+
+    /* The logo's desktop negative margin (used to visually align it
+       within the wide left-hand column) has to be reset on mobile,
+       otherwise it sits off-centre in the now-centred footer column. */
+    .left-footer {
+        align-items: center;
+        text-align: center;
+    }
+
+    .left-footer a img {
+        margin-left: 0;
     }
 
     .left-footer img {
