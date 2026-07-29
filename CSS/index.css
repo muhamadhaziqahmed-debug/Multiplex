@@ -1355,9 +1355,7 @@ hr {
         max-width: 100%;
     }
 
-    #purchase-btn {
-        align-self: flex-start;
-    }
+
 
     /* ---- Services ---- */
     .flex {
@@ -1511,4 +1509,254 @@ hr {
     border: none;
     border-bottom: 2px solid #ebebeb;
     margin-bottom: 20px;
+}
+
+
+@media (300px <=width <=430px) {
+
+    /* ---- Global ---- */
+    img {
+        max-width: 100%;
+    }
+
+    /* ---- Container ---- */
+    /* The desktop container uses large fixed side padding (175px /
+       140px) which would eat almost the entire mobile viewport.
+       Swap it for small, even padding on small screens. */
+    .container {
+        padding: 0 20px;
+    }
+
+
+    /* ---- Announcement bar ---- */
+    .sepcial-deals {
+        height: 70px;
+        gap: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .left-deal {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .left-deal p,
+    .left-deal span {
+        font-size: 12px;
+        font-weight: 200;
+        max-width: 70%;
+    }
+
+    .left-deal button {
+        width: 120px;
+        font-size: 10px;
+    }
+
+    /* ---- Header / navbar ---- */
+    .social-links-head {
+        text-align: right;
+        margin-bottom: 0px;
+    }
+
+    .navbar {
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .navbar a img {
+        height: 70px;
+        margin-left: -30px;
+    }
+
+    /* Hamburger button becomes visible on mobile */
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger:hover {
+        background-color: #fff;
+        color: #89b73d;
+    }
+
+    /* Nav links become a dropdown, hidden until toggled open by JS */
+    .navbar nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        background: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        z-index: 10;
+    }
+
+    .navbar nav.nav-open {
+        display: flex;
+    }
+
+    .navbar nav a {
+        padding: 14px 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* ---- Hero ---- */
+    .hero {
+        height: 80vh;
+        background-image: url(../Images/hero-mobile.png);
+        background-size: cover;
+        padding: 40px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-content {
+        width: 80%;
+        padding: 0 5%;
+    }
+
+    .hero-content h2 {
+        font-size: 30px;
+    }
+
+    .hero-content h3 {
+        font-size: 18px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        /* Full width on mobile instead of 75% so the copy stays
+           readable instead of wrapping into a very narrow column. */
+        width: 100%;
+    }
+
+    .getnow {
+        margin-left: 0;
+        margin-top: 10px;
+        padding: 10px;
+        padding-top: 4px;
+        width: auto;
+
+    }
+
+    /* ---- Intro ---- */
+    .intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .intro h3 {
+        font-size: 22px;
+    }
+
+    .intro p {
+        max-width: 100%;
+    }
+
+    #purchase-btn {
+        align-self: flex-start;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ---- Services ---- */
+    .flex {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 40px 0;
+        gap: 30px;
+    }
+
+    .flex-itm {
+        max-width: 100%;
+    }
+
+    /* ---- Blog grid ---- */
+    .blogs span {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    /* Carousel sliding is disabled on mobile: the window is left
+       unclipped and the track just becomes a plain vertical stack
+       of the 4 real cards (clones hidden below). */
+    .blog-grid {
+        overflow: visible;
+    }
+
+    .blog-grid-item {
+        flex: none;
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    #blog-grid-item-1,
+    #slider-blog,
+    #blog-grid-item-3,
+    #blog-grid-item-4 {
+        height: 250px;
+    }
+
+    .blog-clone {
+        display: none;
+    }
+
+    /* ---- Testimonials ---- */
+    .testimonials {
+        flex-direction: column;
+        gap: 30px;
+        margin: 40px 0;
+    }
+
+    .columns {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .tabs {
+        width: 100vw;
+    }
+
+
+
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* ---- Lower intro strip ---- */
+    .lower-intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    /* ---- Our clients ---- */
+    .our-clients-cont {
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .client img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .card {
+        flex: 0 0 10em;
+    }
+
+    #client-image-chad {
+        width: 300px;
+    }
 }
