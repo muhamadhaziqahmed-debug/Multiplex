@@ -304,7 +304,7 @@ showTestimonial(currentIndex);
 // Auto-advance to the next testimonial every 5 seconds.
 setInterval(goToNextTestimonial, 5000);
 
-const slider_img = document.querySelector('.slider-img');
+const sliderImages = document.querySelectorAll('.slider-img');
 
 const images = ['Grid-2.png', 'Grid2 mark2.png', 'Grid2 mark3.png', 'Grid2 mark4.png'];
 
@@ -327,5 +327,7 @@ function next() {
 }
 
 function setImg() {
-  slider_img.src = 'Images/' + images[i];
+  sliderImages.forEach((img) => {
+    img.src = 'Images/' + images[i];
+  });
 }
